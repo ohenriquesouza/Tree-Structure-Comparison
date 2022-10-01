@@ -1,6 +1,6 @@
 #include "rb.hpp"
 
-Tree* CreateTree(){
+Tree* CreateTreeRB(){
   
   return NULL;
 
@@ -89,7 +89,7 @@ void insertFixUp(Tree **raiz, Tree *child){
 }
 
 
-void insertTree(Tree **t, Tree **pai, Tree **raiz, Record r){
+void insertTreeRB(Tree **t, Tree **pai, Tree **raiz, Record r){
   
   if(*t == NULL){
     

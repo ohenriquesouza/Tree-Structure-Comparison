@@ -17,7 +17,7 @@ struct Tree{
 };
 
 
-Tree* CreateTree();
+Tree* CreateTreeRB();
 
 void rotacaoSimplesEsquerda(Tree **raiz, Tree *child);
 
@@ -25,7 +25,7 @@ void rotacaoSimplesDireita(Tree **raiz, Tree *child);
 
 void insertFixUp(Tree **raiz, Tree *child);
 
-void insertTree(Tree **t, Tree **pai, Tree **raiz, Record r);
+void insertTreeRB(Tree **t, Tree **pai, Tree **raiz, Record r);
 
 void pesquisa(Tree **t, Tree **aux, Record r);
 

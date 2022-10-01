@@ -15,8 +15,9 @@ struct Tree{
 	int weight;
 };
 
-Tree* CreateTree();
-void insertTree(Tree **t, Record r);
+Tree* CreateTreeAVL();
+
+void insertTreeAVL(Tree **t, Record r);
 
 void pesquisa(Tree **t, Tree **aux, Record r);
 

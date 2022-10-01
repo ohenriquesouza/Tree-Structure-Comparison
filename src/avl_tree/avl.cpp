@@ -1,11 +1,11 @@
 #include "avl.hpp"
 
-Tree* CreateTree(){
+Tree* CreateTreeAVL(){
 	
     return NULL;
 }
 
-void insertTree(Tree **t, Record r){
+void insertTreeAVL(Tree **t, Record r){
 
   if(*t == NULL){
     
