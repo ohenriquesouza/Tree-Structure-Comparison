@@ -1,12 +1,13 @@
 CXX      := -g++
-CXXFLAGS := -Wall -Wextra -Werror
+# CXXFLAGS := -Wall -Wextra -Werror
 LDFLAGS  := -lstdc++ -lm
 BUILD    := ./build
 OBJ_DIR  := $(BUILD)/objects
 APP_DIR  := $(BUILD)/
 TARGET   := app
 INCLUDE  := -Iinclude/
-SRC      :=  $(wildcard src/*.cpp)\$(wildcard avl_tree/*.cpp)\$(wildcard basic_tree/*.cpp)\$(wildcard red_black_tree/*.cpp)
+SRC      :=  $(wildcard src/*.cpp)
+
 
 OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
@@ -18,7 +19,7 @@ $(OBJ_DIR)/%.o: %.cpp
 
 $(APP_DIR)/$(TARGET): $(OBJECTS)
 	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -g $(LDFLAGS) -o $(APP_DIR)/$(TARGET) $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -g -o $(APP_DIR)/$(TARGET) $(OBJECTS) $(LDFLAGS)
 
 .PHONY: all build clean debug release run
 
@@ -38,3 +39,5 @@ clean:
 
 run:
 	./$(BUILD)/$(TARGET)
+
+r: all run

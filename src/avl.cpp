@@ -1,15 +1,15 @@
 #include "avl.hpp"
 
-Tree* CreateTreeAVL(){
+TreeAVL* CreateTreeAVL(){
 	
     return NULL;
 }
 
-void insertTreeAVL(Tree **t, Record r){
+void insertTreeAVL(TreeAVL **t, RecordAVL r){
 
   if(*t == NULL){
     
-    *t = (Tree*)malloc(sizeof(Tree));
+    *t = (TreeAVL*)malloc(sizeof(TreeAVL));
     
     (*t)->left   = NULL; 
     
@@ -23,7 +23,7 @@ void insertTreeAVL(Tree **t, Record r){
     
     if(r.key < (*t)->reg.key){
       
-      insertTree(&(*t)->left, r);
+      insertTreeAVL(&(*t)->left, r);
       
       if ((getWeight(&(*t)->left) - getWeight(&(*t)->right)) == 2){
       
@@ -38,7 +38,7 @@ void insertTreeAVL(Tree **t, Record r){
     
     if(r.key > (*t)->reg.key){
       
-      insertTree(&(*t)->right, r);
+      insertTreeAVL(&(*t)->right, r);
       
       if ((getWeight(&(*t)->right) - getWeight(&(*t)->left)) == 2){
       
@@ -58,23 +58,23 @@ void insertTreeAVL(Tree **t, Record r){
 }
 
 
-void pesquisa(Tree **t, Tree **aux, Record r){
+void pesquisaAVL(TreeAVL **t, TreeAVL **aux, RecordAVL r){
 
 	if(*t == NULL){
-		
-        printf("[ERROR]: Node not found!");
-		
-        return;
+
+    // printf("[ERROR]: Node not found!");
+
+    return;
 	}
 
-	if((*t)->reg.key > r.key){ pesquisa(&(*t)->left, aux, r); return;}
+	if((*t)->reg.key > r.key){ pesquisaAVL(&(*t)->left, aux, r); return;}
 	
-    if((*t)->reg.key < r.key){ pesquisa(&(*t)->right, aux, r); return;}
+    if((*t)->reg.key < r.key){ pesquisaAVL(&(*t)->right, aux, r); return;}
 
 	*aux = *t;
 }
 
-int isInTree(Tree *t, Record r){
+int isInTreeAVL(TreeAVL *t, RecordAVL r){
   
   if(t == NULL){ 
     
@@ -82,11 +82,11 @@ int isInTree(Tree *t, Record r){
   
   }
   
-  return t->reg.key == r.key || isInTree(t->left, r) || isInTree(t->right, r);
+  return t->reg.key == r.key || isInTreeAVL(t->left, r) || isInTreeAVL(t->right, r);
 }
 
 
-void antecessor(Tree **t, Tree *aux){ 
+void antecessor(TreeAVL **t, TreeAVL *aux){ 
 
 	if ((*t)->right != NULL){ 
 		
@@ -104,24 +104,27 @@ void antecessor(Tree **t, Tree *aux){
     free(aux);
 } 
 
-void rebalanceTree(Tree **t){
+void rebalanceTree(TreeAVL **t){
 	int balance;
   	
-    int left = 0;
+  int left = 0;
   	
-    int right = 0;
+  int right = 0;
 
 	balance = getWeight(&(*t)->left) - getWeight(&(*t)->right);
 	
-    if((*t)->left)
-	
+    if((*t)->left){
+    
     	left = getWeight(&(*t)->left->left) - getWeight(&(*t)->left->right);
-	
-    if((*t)->right)
-	
-    	right = getWeight(&(*t)->right->left) - getWeight(&(*t)->right->right);
+    
+    }
 
-	if(balance == 2 && left >= 0)
+    if((*t)->right){
+    	
+      right = getWeight(&(*t)->right->left) - getWeight(&(*t)->right->right);
+	 }
+
+  if(balance == 2 && left >= 0)
 	
     	rotacaoSimplesDireita(t);
 	
@@ -140,19 +143,22 @@ void rebalanceTree(Tree **t){
 
 }
 
-void removeTree(Tree **t, Tree **f, Record r){
-	Tree *aux;
+void removeTreeAVL(TreeAVL **t, TreeAVL **f, RecordAVL r){
+
+  // cout<<"ENTREI NA REMOVE AVL"<<endl;
+
+	TreeAVL *aux;
   	
   	if (*t == NULL){ 
   		
-        printf("[ERROR]: Record not found!!!\n");
-    	
-        return;
+     // printf("[ERROR]: Record not found!!!\n");
+    
+      return;
   	}
 
-  	if (r.key < (*t)->reg.key){ removeTree(&(*t)->left, t, r); return;}
+  	if (r.key < (*t)->reg.key){ removeTreeAVL(&(*t)->left, t, r); return;}
   	
-    if (r.key > (*t)->reg.key){ removeTree(&(*t)->right, t, r); return;}
+    if (r.key > (*t)->reg.key){ removeTreeAVL(&(*t)->right, t, r); return;}
 
   	if ((*t)->right == NULL){ 
   		aux = *t;  
@@ -161,18 +167,19 @@ void removeTree(Tree **t, Tree **f, Record r){
     	
         free(aux);
     	
+        return;
+
         rebalanceTree(f);
     	
-        return;
   	}
 
   	if ((*t)->left != NULL){ 
   		
         antecessor(&(*t)->left, *t);
   		
-        rebalanceTree(t);
-  		
         rebalanceTree(f);
+  		
+        rebalanceTree(t);
   		
         return;
   	}
@@ -183,18 +190,18 @@ void removeTree(Tree **t, Tree **f, Record r){
   	
     free(aux);
   	
-    rebalanceTree(t);
+    rebalanceTree(f);
   	
-    rebalanceTree(f); 	
+    rebalanceTree(t); 	
   	
 }
 
-void preordem(Tree *t)
+void preordem(TreeAVL *t)
 {
   
   if(!(t == NULL)){
     
-    printf("%d:%d\t", t->reg.key, t->weight);
+    printf("%f:%d\t", t->reg.key, t->weight);
     
     preordem(t->left); 
     
@@ -203,20 +210,20 @@ void preordem(Tree *t)
 }
 
 
-void central(Tree *t)
+void central(TreeAVL *t)
 {
   
   if(!(t == NULL)){
     
     central(t->left); 
     
-    printf("%d\t", t->reg.key);
+    printf("%f\t", t->reg.key);
     
     central(t->right); 
   }
 }
 
-void posordem(Tree *t)
+void posordem(TreeAVL *t)
 {
   
   if(!(t == NULL)){
@@ -225,12 +232,12 @@ void posordem(Tree *t)
     
     posordem(t->right); 
     
-    printf("%d\t", t->reg.key);
+    printf("%f\t", t->reg.key);
   }
 }
 
 
-int getWeight(Tree **t){
+int getWeight(TreeAVL **t){
 	
     if(*t == NULL)
 	
@@ -248,9 +255,9 @@ int getMaxWeight(int left, int right){
     return right;
 }
 
-void rotacaoSimplesDireita(Tree **t){
+void rotacaoSimplesDireita(TreeAVL **t){
 	
-    Tree *aux;
+    TreeAVL *aux;
 	
     aux = (*t)->left;
 	
@@ -265,9 +272,9 @@ void rotacaoSimplesDireita(Tree **t){
     (*t) = aux;
 }
 
-void rotacaoSimplesEsquerda(Tree **t){
+void rotacaoSimplesEsquerda(TreeAVL **t){
 	
-    Tree *aux;
+    TreeAVL *aux;
 	
     aux = (*t)->right;
 	
@@ -282,14 +289,14 @@ void rotacaoSimplesEsquerda(Tree **t){
     (*t) = aux;
 }
 
-void rotacaoDuplaDireita(Tree **t){
+void rotacaoDuplaDireita(TreeAVL **t){
 	
     rotacaoSimplesEsquerda(&(*t)->left);
 	
     rotacaoSimplesDireita(t);
 }
 
-void rotacaoDuplaEsquerda(Tree **t){
+void rotacaoDuplaEsquerda(TreeAVL **t){
 	
     rotacaoSimplesDireita(&(*t)->right);
 	

@@ -4,9 +4,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
+#include <iostream>
+
+using namespace std;
 
 struct Record{
-	int key;
+	float key;
 	int value;
 };
 
@@ -21,9 +24,9 @@ bool TVazia(Tree **t);
 
 void insertTree(Tree **t, Record r);
 
-void pesquisa(Tree **t, Tree **aux, Record r);
+void pesquisaAPB(Tree **t, Tree **aux, Record r);
 
-int isInTree(Tree *t, Record r);
+int isInTreeAPB(Tree *t, Record r);
 
 void removeTree(Tree **t, Record r);
 

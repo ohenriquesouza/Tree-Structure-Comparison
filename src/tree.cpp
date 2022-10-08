@@ -43,26 +43,26 @@ void insertTree(Tree **t, Record r){
 
 }
 
-void pesquisa(Tree **t, Tree **aux, Record r){
+void pesquisaAPB(Tree **t, Tree **aux, Record r){
 
   if(*t == nullptr){
    
-    printf("[ERROR]: Node not found!");
+    // printf("[ERROR]: Node not found!");
    
     return;
  
   }
 
-  if((*t)->reg.key > r.key){ pesquisa(&(*t)->esq, aux, r); return;}
+  if((*t)->reg.key > r.key){ pesquisaAPB(&(*t)->esq, aux, r); return;}
   
-  if((*t)->reg.key < r.key){ pesquisa(&(*t)->dir, aux, r); return;}
+  if((*t)->reg.key < r.key){ pesquisaAPB(&(*t)->dir, aux, r); return;}
 
   *aux = *t;
 
 }
 
 
-int isInTree(Tree *t, Record r) {
+int isInTreeAPB(Tree *t, Record r) {
   
   if(t == nullptr){ 
     
@@ -70,7 +70,7 @@ int isInTree(Tree *t, Record r) {
   
   }
   
-  return t->reg.key == r.key || isInTree(t->esq, r) || isInTree(t->dir, r);
+  return t->reg.key == r.key || isInTreeAPB(t->esq, r) || isInTreeAPB(t->dir, r);
 }
 
 
@@ -78,9 +78,9 @@ void antecessor(Tree **t, Tree *aux){
 
 	if ((*t)->dir != nullptr){ 
 		
-        antecessor(&(*t)->dir, aux);
-		
-        return;
+    antecessor(&(*t)->dir, aux);
+
+    return;
   }
   	
   aux->reg = (*t)->reg;
@@ -96,11 +96,13 @@ void antecessor(Tree **t, Tree *aux){
 
 void removeTree(Tree **t, Record r){
 
+  // cout<<"ENTREI NA REMOVE APB"<<endl;
+
 	Tree *aux;
   	
   	if (*t == nullptr){ 
 
-  		printf("[ERROR]: Record not found!!!\n");
+  		//printf("[ERROR]: Record not found!!!\n");
 
     	return;
 
@@ -138,7 +140,7 @@ void preordem(Tree *t)
 
   if(!(t == nullptr)){
 
-    printf("%d ", t->reg.key);
+    printf("%f ", t->reg.key);
 
     preordem(t->esq); 
 
@@ -154,7 +156,7 @@ void central(Tree *t)
     
     central(t->esq); 
     
-    printf("%d ", t->reg.key);
+    printf("%f ", t->reg.key);
     
     central(t->dir); 
   
@@ -169,7 +171,7 @@ void posordem(Tree *t)
     
     posordem(t->dir); 
     
-    printf("%d ", t->reg.key);
+    printf("%f ", t->reg.key);
   }
 }
 
@@ -189,7 +191,7 @@ void widthPath(Tree *t){
 
     Desenfileira(&q, &no);
   
-    printf("%d ", no.p->reg.key);
+    printf("%f ", no.p->reg.key);
 
     if(no.p->esq != nullptr){
  

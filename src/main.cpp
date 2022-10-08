@@ -1,92 +1,268 @@
-#include "avl_tree/avl.hpp"
-#include "basic_tree/fila.hpp"
-#include "basic_tree/tree.hpp"
-#include "red_black_tree/rb.hpp"
-#include "funcoes/funcoes.hpp"
-#include "leArquivos.hpp"
+#include "avl.hpp"
+#include "fila.hpp"
+#include "tree.hpp"
+#include "rb.hpp"
+#include <iostream>
+#include <map>
+#include <unordered_map>
+#include <string>
+#include <algorithm>
+#include <fstream>
+#include <vector>
+#include <ctime>
 
-int main(){
-    
-    int opcao, contMenu = 0;
-    
-    while(opcao != 0){
+using namespace std;
 
-        cout<<"---MENU  DE OPCOES---"<<endl;
-        
-        cout<<"1 - Escolher tipo de árvore;"<<endl;
-        
-        cout<<"2 - Escolher o arquivo a ser lido;"<<endl;
-        
-        cout<<"0 - Encerrar o programa;"<<endl;
+void learquivos(int TAM){
 
-        cin>>opcao;
+    map <float, int> Mapa;
 
-        if(opcao == 1){
+    unordered_map <float, int> u_Mapa;
 
-            int opcao1;
+    Tree *raizAPB = CreateTree();
+    Record r;
 
-            contMenu++;
+    TreeAVL *raizAVL = CreateTreeAVL();
+    RecordAVL rAVL;
 
-            cout<<"---MENU DE OPCOES---"<<endl;
+    TreeRB *raizRB = CreateTreeRB();
+    RecordRB rRB;
 
-            cout<<"1 - Arvore Binaria;"<<endl;
+    vector <float> ComparaTempo;
 
-            cout<<"2 - Arvore AVL;"<<endl;
+    vector <float> values;
 
-            cout<<"3- Arvore Red/Black;"<<endl;
+    string linha;
 
-            cout<<"0 - Voltar ao menu;"<<endl;
+    double tempo_gastoVector = 0.0, tempo_gastoAPB = 0.0, tempo_gastoAVL = 0.0, tempo_gastoRB = 0.0, tempo_gastoMAPA = 0.0, tempo_gastou_MAPA = 0.0;
 
-            cin>>opcao1;
+    float auxiliar;
 
-            if(opcao1 == 1){
-                //CHAMA A BINARIA
+    ifstream myfile;
 
-                Tree *raiz = CreateTree();
-                Record r;
+    string caminho = "src/files/";
 
-                cout<<"Árvore binária criada com sucesso!"<<endl;
+    caminho.append(to_string(TAM)).append("NumbersFile.txt"); 
 
-                escolheArquivo(&raiz, r);
+    myfile.open(caminho);
 
-            }
-                
-            if(opcao1 == 2){
-                //CHAMA A AVL
+    clock_t beginAPB;
 
-                Tree *raiz = CreateTreeAVL();
+    clock_t beginAVL;
 
-                cout<<"Árvore AVL criada com sucesso!"<<endl;
+    clock_t beginRB;
 
-                // escolheArquivo(&raiz);
+    clock_t beginMAPA;
 
-            }
-                
-            if(opcao1 == 3){
-                //CHAMA A RB
+    clock_t beginu_MAPA;
 
-                Tree *raiz = CreateTreeRB();
+    clock_t beginVector;
 
-                cout<<"Árvore Red/Black criada com sucesso!"<<endl;
+    if(myfile.is_open()){
 
-                // escolheArquivo(&raiz);
+        while(getline(myfile, linha)){
 
-            }
-                
-            if(opcao1 == 0){
-                //VOLTA AO MENU
+            auxiliar = stof(linha);
 
-                cout<<"Programa finalizado!"<<endl;
+            values.push_back(auxiliar);
 
-            }
-                
+            r.key = rAVL.key = rRB.key = auxiliar;
+
+            r.value = rAVL.value = rRB.value = 1;
+
+            beginAPB = clock();
+            insertTree(&raizAPB, r);
+            tempo_gastoAPB += ((double)(clock() - beginAPB) / CLOCKS_PER_SEC);
+
+            beginAVL = clock();
+            insertTreeAVL(&raizAVL, rAVL);
+            tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
+
+            beginRB = clock();
+            insertTreeRB(&raizRB, &raizRB, &raizRB, rRB);
+            tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
+
+            beginMAPA = clock();
+            Mapa.insert({auxiliar, 1});
+            tempo_gastoMAPA += ((double)(clock() - beginMAPA) / CLOCKS_PER_SEC);
+
+            beginu_MAPA = clock();
+            u_Mapa.insert({auxiliar, 1});
+            tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
+
+            beginVector = clock();
+            ComparaTempo.push_back(auxiliar);
+            tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
+
         }
 
-        if(opcao == 2 && contMenu < 1)
-            cout<<"Primeiro, escolha com qual estrutura deseja continuar!"<<endl;
+        myfile.close();
 
+        printf("%d elementos inseridos na Árvore binária com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoAPB);
+        printf("%d elementos inseridos na Árvore AVL com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoAVL);
+        printf("%d elementos inseridos na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoRB);
+        printf("%d elementos inseridos no Mapa com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoMAPA);
+        printf("%d elementos inseridos no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastou_MAPA);
+        printf("%d elementos inseridos no Vector com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoVector);
+
+    }else{
+
+        cout<<"Arquivo não encontrado."<<endl;
     }
-    
-    cout<<"Programa finalizado."<<endl;
-    exit();
+
+    printf("--------------------------------------\n");
+    printf("Fim da inserção dos %d elementos\n",TAM);
+    printf("--------------------------------------\n\n");
+
+    TreeRB *auxiliarRB = CreateTreeRB();
+
+    ifstream myfile2;
+
+    caminho.assign("src/files/entrada.txt");
+
+    myfile2.open(caminho);
+
+    tempo_gastoAPB =  tempo_gastoAVL = tempo_gastoRB = 0;
+
+    if(myfile2.is_open()){
+
+        map <float, int>::iterator it;
+
+        unordered_map <float, int>::iterator itr;
+
+        while(getline(myfile2, linha)){
+
+            auxiliar = stof(linha);
+
+            values.push_back(auxiliar);
+
+            r.key = rAVL.key = rRB.key = auxiliar;
+
+            it = Mapa.find(auxiliar);
+
+            itr = u_Mapa.find(auxiliar);
+
+            r.value = rAVL.value = rRB.value = 1;
+
+            beginAPB = clock();
+            isInTreeAPB(raizAPB, r);
+            tempo_gastoAPB += ((double)(clock() - beginAPB) / CLOCKS_PER_SEC);
+
+            beginAVL = clock();
+            isInTreeAVL(raizAVL, rAVL);
+            tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
+
+            beginRB = clock();
+            pesquisaRB(&raizRB, &auxiliarRB, rRB);
+            tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
+
+            beginMAPA = clock();
+            it = Mapa.find(auxiliar);
+            if(it != Mapa.end()){/*cout<<"achei"*/;}
+            tempo_gastoMAPA += ((double)(clock() - beginMAPA) / CLOCKS_PER_SEC);
+
+            beginu_MAPA = clock();
+            itr = u_Mapa.find(auxiliar);
+            if(itr != u_Mapa.end()){/*cout<<"achei"*/;}
+            tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
+
+            // beginVector = clock();
+            // ComparaTempo.push_back(auxiliar);
+            // tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
+
+        }
+
+        myfile2.close();
+
+        printf("Todos os elementos foram pesquisados na Árvore binária com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAPB);
+        printf("Todos os elementos foram pesquisados na Árvore AVL com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAVL);
+        printf("Todos os elementos foram pesquisados na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoRB);
+        printf("Todos os elementos foram pesquisados no Mapa com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoMAPA);
+        printf("Todos os elementos foram pesquisados no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf\n", tempo_gastou_MAPA);
+
+    }else{
+
+        cout<<"Arquivo não encontrado."<<endl;
+    }
+
+    printf("--------------------------------------\n");
+    printf("Fim da pesquisa dos %d elementos\n",TAM);
+    printf("--------------------------------------\n\n");
+
+    ifstream myfile3;
+
+    caminho.assign("src/files/entrada.txt");
+
+    myfile3.open(caminho);
+
+    tempo_gastoAPB =  tempo_gastoAVL = tempo_gastoRB = 0;
+
+    if(myfile3.is_open()){
+
+        map <float, int>::iterator it;
+
+        unordered_map <float, int>::iterator itr;
+
+        // cout<<"ABRIU O ARQUIVO"<<endl;
+
+        while(getline(myfile3, linha)){
+
+            auxiliar = stof(linha);
+
+            r.key = rAVL.key = auxiliar; //rRB.key
+
+            r.value = rAVL.value = 1; // rRB.value =
+
+            beginAPB = clock();
+            removeTree(&raizAPB, r);
+            tempo_gastoAPB += ((double)(clock() - beginAPB) / CLOCKS_PER_SEC);
+
+            beginAVL = clock();
+            removeTreeAVL(&raizAVL, &raizAVL, rAVL);
+            tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
+
+            // beginRB = clock();
+            // pesquisaRB(&raizRB, &auxiliarRB, rRB);
+            // tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
+
+            beginMAPA = clock();
+            it = Mapa.find(auxiliar);
+            if(it != Mapa.end()){Mapa.erase(it);}
+            tempo_gastoMAPA += ((double)(clock() - beginMAPA) / CLOCKS_PER_SEC);
+
+            beginu_MAPA = clock();
+            itr = u_Mapa.find(auxiliar);
+            if(itr != u_Mapa.end()){u_Mapa.erase(itr);}
+            tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
+
+        }
+
+        myfile3.close();
+
+        printf("Elementos foram removidos na Árvore binária com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAPB);
+        printf("Elementos foram removidos na Árvore AVL com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAVL);
+        // printf("Elementos foram removidos na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoRB);
+        printf("Elementos foram removidos no Mapa com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoMAPA);
+        printf("Elementos foram removidos no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf\n", tempo_gastou_MAPA);
+
+    }else{
+
+        cout<<"Arquivo não encontrado."<<endl;
+    }
+
+    printf("--------------------------------------\n");
+    printf("Fim da remoção dos elementos\n");
+    printf("--------------------------------------\n\n");
+
+}
+
+int main(){
+
+    //learquivos(500);
+
+    learquivos(5000);
+
+    //learquivos(50000);
+
+    //learquivos(500000);
 }
