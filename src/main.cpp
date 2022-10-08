@@ -260,9 +260,9 @@ int main(){
 
     //learquivos(500);
 
-    learquivos(5000);
+    //learquivos(5000);
 
-    //learquivos(50000);
+    learquivos(50000);
 
     //learquivos(500000);
 }
