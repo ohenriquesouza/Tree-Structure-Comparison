@@ -31,10 +31,6 @@ void insertFixUp(TreeRB **raiz, TreeRB *child);
 
 void insertTreeRB(TreeRB **t, TreeRB **pai, TreeRB **raiz, RecordRB r);
 
-// void removeRB(TreeRB **t, TreeRB* aux1,TreeRB* aux2,TreeRB *aux3);
-
-// void removeRB_fix(TreeRB **t, TreeRB *aux1,TreeRB *aux2);
-
 void pesquisaRB(TreeRB **t, TreeRB **aux, RecordRB r);
 
 void preordem(TreeRB *t);

@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <fstream>
 #include <vector>
+#include <bits/stdc++.h>
 #include <ctime>
 
 using namespace std;
@@ -92,27 +93,29 @@ void learquivos(int TAM){
 
             beginVector = clock();
             ComparaTempo.push_back(auxiliar);
+            sort(ComparaTempo.begin(), ComparaTempo.end()); //ordena o vector
             tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
 
         }
 
         myfile.close();
-
-        printf("%d elementos inseridos na Árvore binária com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoAPB);
-        printf("%d elementos inseridos na Árvore AVL com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoAVL);
-        printf("%d elementos inseridos na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoRB);
-        printf("%d elementos inseridos no Mapa com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoMAPA);
-        printf("%d elementos inseridos no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastou_MAPA);
-        printf("%d elementos inseridos no Vector com sucesso, tempo decorrido: %0.6lf\n",TAM, tempo_gastoVector);
+        
+        printf("\n\n---------------------------------INÍCIO DAS INSERÇÕES---------------------------------\n\n");
+        printf("* %d elementos inseridos na Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoAPB);
+        printf("* %d elementos inseridos na Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoAVL);
+        printf("* %d elementos inseridos na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoRB);
+        printf("* %d elementos inseridos no Mapa com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoMAPA);
+        printf("* %d elementos inseridos no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastou_MAPA);
+        printf("* %d elementos inseridos e ordenados no Vector com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoVector);
 
     }else{
 
         cout<<"Arquivo não encontrado."<<endl;
     }
 
-    printf("--------------------------------------\n");
+    printf("\n-------------------------------------------------------------------------------------\n");
     printf("Fim da inserção dos %d elementos\n",TAM);
-    printf("--------------------------------------\n\n");
+    printf("---------------------------------------------------------------------------------------\n\n");
 
     TreeRB *auxiliarRB = CreateTreeRB();
 
@@ -166,28 +169,30 @@ void learquivos(int TAM){
             if(itr != u_Mapa.end()){/*cout<<"achei"*/;}
             tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
 
-            // beginVector = clock();
-            // ComparaTempo.push_back(auxiliar);
-            // tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
+            beginVector = clock();
+            binary_search(ComparaTempo.begin(), ComparaTempo.end(), auxiliar);
+            tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
 
         }
 
         myfile2.close();
 
-        printf("Todos os elementos foram pesquisados na Árvore binária com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAPB);
-        printf("Todos os elementos foram pesquisados na Árvore AVL com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAVL);
-        printf("Todos os elementos foram pesquisados na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoRB);
-        printf("Todos os elementos foram pesquisados no Mapa com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoMAPA);
-        printf("Todos os elementos foram pesquisados no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf\n", tempo_gastou_MAPA);
+        printf("\n\n---------------------------------INÍCIO DAS BUSCAS---------------------------------\n\n");
+        printf("* Todos os elementos foram pesquisados na Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAPB);
+        printf("* Todos os elementos foram pesquisados na Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAVL);
+        printf("* Todos os elementos foram pesquisados na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoRB);
+        printf("* Todos os elementos foram pesquisados no Mapa com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoMAPA);
+        printf("* Todos os elementos foram pesquisados no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastou_MAPA);
+        printf("* Todos os elementos foram pesquisados no Vector com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoVector);
 
     }else{
 
         cout<<"Arquivo não encontrado."<<endl;
     }
 
-    printf("--------------------------------------\n");
+    printf("\n-------------------------------------------------------------------------------------\n");
     printf("Fim da pesquisa dos %d elementos\n",TAM);
-    printf("--------------------------------------\n\n");
+    printf("---------------------------------------------------------------------------------------\n\n");
 
     ifstream myfile3;
 
@@ -235,34 +240,39 @@ void learquivos(int TAM){
             if(itr != u_Mapa.end()){u_Mapa.erase(itr);}
             tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
 
+            beginVector = clock();
+            if(binary_search(ComparaTempo.begin(), ComparaTempo.end(), auxiliar)){ComparaTempo.erase(lower_bound(ComparaTempo.begin(), ComparaTempo.end(), auxiliar));}
+            tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
         }
 
         myfile3.close();
 
-        printf("Elementos foram removidos na Árvore binária com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAPB);
-        printf("Elementos foram removidos na Árvore AVL com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoAVL);
-        // printf("Elementos foram removidos na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoRB);
-        printf("Elementos foram removidos no Mapa com sucesso, tempo decorrido: %0.6lf\n", tempo_gastoMAPA);
-        printf("Elementos foram removidos no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf\n", tempo_gastou_MAPA);
+         printf("\n\n---------------------------------INÍCIO DAS REMOÇÕES---------------------------------\n\n");
+        printf("* Elementos foram removidos da Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAPB);
+        printf("* Elementos foram removidos da Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAVL);
+        // printf("Elementos foram removidos da Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoRB);
+        printf("* Elementos foram removidos do Mapa com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoMAPA);
+        printf("* Elementos foram removidos do Mapa Desordenado com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastou_MAPA);
+        printf("* Elementos foram removidos do Vector com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoVector);
 
     }else{
 
         cout<<"Arquivo não encontrado."<<endl;
     }
 
-    printf("--------------------------------------\n");
+    printf("\n-------------------------------------------------------------------------------------\n");
     printf("Fim da remoção dos elementos\n");
-    printf("--------------------------------------\n\n");
+    printf("---------------------------------------------------------------------------------------\n\n");
 
 }
 
 int main(){
 
-    //learquivos(500);
+    learquivos(500);
 
     //learquivos(5000);
 
-    learquivos(50000);
+    //learquivos(50000);
 
     //learquivos(500000);
 }
