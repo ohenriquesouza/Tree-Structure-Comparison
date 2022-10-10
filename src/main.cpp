@@ -214,9 +214,9 @@ void learquivos(int TAM){
 
             auxiliar = stof(linha);
 
-            r.key = rAVL.key = auxiliar; //rRB.key
+            r.key = rAVL.key =  rRB.key = auxiliar;
 
-            r.value = rAVL.value = 1; // rRB.value =
+            r.value = rAVL.value =  rRB.value = 1; 
 
             beginAPB = clock();
             removeTree(&raizAPB, r);
@@ -226,9 +226,9 @@ void learquivos(int TAM){
             removeTreeAVL(&raizAVL, &raizAVL, rAVL);
             tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
 
-            // beginRB = clock();
-            // pesquisaRB(&raizRB, &auxiliarRB, rRB);
-            // tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
+            beginRB = clock();
+            pesquisaRBparaRemover(&raizRB, raizRB, rRB);
+            tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
 
             beginMAPA = clock();
             it = Mapa.find(auxiliar);
@@ -247,10 +247,10 @@ void learquivos(int TAM){
 
         myfile3.close();
 
-         printf("\n\n---------------------------------INÍCIO DAS REMOÇÕES---------------------------------\n\n");
+        printf("\n\n---------------------------------INÍCIO DAS REMOÇÕES---------------------------------\n\n");
         printf("* Elementos foram removidos da Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAPB);
         printf("* Elementos foram removidos da Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAVL);
-        // printf("Elementos foram removidos da Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoRB);
+        printf("* Elementos foram removidos da Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoRB);
         printf("* Elementos foram removidos do Mapa com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoMAPA);
         printf("* Elementos foram removidos do Mapa Desordenado com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastou_MAPA);
         printf("* Elementos foram removidos do Vector com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoVector);
@@ -270,7 +270,7 @@ int main(){
 
     learquivos(500);
 
-    //learquivos(5000);
+    learquivos(5000);
 
     //learquivos(50000);
 

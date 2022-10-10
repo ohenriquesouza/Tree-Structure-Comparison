@@ -23,6 +23,8 @@ struct TreeRB{
 
 TreeRB* CreateTreeRB();
 
+TreeRB *tree_minimum(TreeRB *auxiliar);
+
 void rotacaoSimplesEsquerda(TreeRB **raiz, TreeRB *child);
 
 void rotacaoSimplesDireita(TreeRB **raiz, TreeRB *child);
@@ -31,7 +33,15 @@ void insertFixUp(TreeRB **raiz, TreeRB *child);
 
 void insertTreeRB(TreeRB **t, TreeRB **pai, TreeRB **raiz, RecordRB r);
 
+void removeTreeRB(TreeRB **t, TreeRB* z, TreeRB* y, TreeRB *x);
+
+void transplantTreeRB(TreeRB **t, TreeRB *temp, TreeRB *tempFilho);
+
+void removeFixUpTreeRB(TreeRB **t, TreeRB *x, TreeRB *w);
+
 void pesquisaRB(TreeRB **t, TreeRB **aux, RecordRB r);
+
+void pesquisaRBparaRemover(TreeRB **t, TreeRB *aux, RecordRB r);
 
 void preordem(TreeRB *t);
 
