@@ -115,8 +115,8 @@ void learquivos(int TAM){
         cout<<"Arquivo não encontrado."<<endl;
     }
 
-    printf("\n-------------------------------------------------------------------------------------\n");
-    printf("Fim da inserção dos %d elementos\n",TAM);
+    // printf("\n-------------------------------------------------------------------------------------\n");
+    printf("\nFim da inserção dos %d elementos\n",TAM);
     printf("---------------------------------------------------------------------------------------\n\n");
 
     ifstream myfile2;
@@ -190,8 +190,8 @@ void learquivos(int TAM){
         cout<<"Arquivo não encontrado."<<endl;
     }
 
-    printf("\n-------------------------------------------------------------------------------------\n");
-    printf("Fim da pesquisa dos %d elementos\n",TAM);
+    // printf("\n-------------------------------------------------------------------------------------\n");
+    printf("\nFim da pesquisa dos %d elementos\n",TAM);
     printf("---------------------------------------------------------------------------------------\n\n");
 
     ifstream myfile3;
@@ -260,8 +260,8 @@ void learquivos(int TAM){
         cout<<"Arquivo não encontrado."<<endl;
     }
 
-    printf("\n-------------------------------------------------------------------------------------\n");
-    printf("Fim da remoção dos elementos\n");
+    // printf("\n-------------------------------------------------------------------------------------\n");
+    printf("\nFim da remoção dos elementos\n");
     printf("---------------------------------------------------------------------------------------\n\n");
 
 }
