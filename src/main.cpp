@@ -26,8 +26,10 @@ void learquivos(int TAM){
     TreeAVL *raizAVL = CreateTreeAVL();
     RecordAVL rAVL;
 
-    TreeRB *raizRB = CreateTreeRB();
+    TreeRB *raizRB;
     RecordRB rRB;
+
+    initializeTreeRB(&raizRB);
 
     vector <float> ComparaTempo;
 
@@ -43,7 +45,7 @@ void learquivos(int TAM){
 
     string caminho = "src/files/";
 
-    caminho.append(to_string(TAM)).append("NumbersFile.txt"); 
+    caminho.append(to_string(TAM)).append("NumbersFile.txt");
 
     myfile.open(caminho);
 
@@ -80,7 +82,7 @@ void learquivos(int TAM){
             tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
 
             beginRB = clock();
-            insertTreeRB(&raizRB, &raizRB, &raizRB, rRB);
+            insertTreeRB(&raizRB, rRB);
             tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
 
             beginMAPA = clock();
@@ -99,7 +101,7 @@ void learquivos(int TAM){
         }
 
         myfile.close();
-        
+
         printf("\n\n---------------------------------INÍCIO DAS INSERÇÕES---------------------------------\n\n");
         printf("* %d elementos inseridos na Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoAPB);
         printf("* %d elementos inseridos na Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoAVL);
@@ -116,8 +118,6 @@ void learquivos(int TAM){
     printf("\n-------------------------------------------------------------------------------------\n");
     printf("Fim da inserção dos %d elementos\n",TAM);
     printf("---------------------------------------------------------------------------------------\n\n");
-
-    TreeRB *auxiliarRB = CreateTreeRB();
 
     ifstream myfile2;
 
@@ -156,7 +156,7 @@ void learquivos(int TAM){
             tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
 
             beginRB = clock();
-            pesquisaRB(&raizRB, &auxiliarRB, rRB);
+            pesquisaRB(&raizRB, &raizRB, rRB);
             tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
 
             beginMAPA = clock();
@@ -216,7 +216,7 @@ void learquivos(int TAM){
 
             r.key = rAVL.key =  rRB.key = auxiliar;
 
-            r.value = rAVL.value =  rRB.value = 1; 
+            r.value = rAVL.value =  rRB.value = 1;
 
             beginAPB = clock();
             removeTree(&raizAPB, r);
@@ -268,7 +268,7 @@ void learquivos(int TAM){
 
 int main(){
 
-    learquivos(500);
+    //learquivos(500);
 
     learquivos(5000);
 

@@ -1,4 +1,4 @@
-#ifndef RB_HPP 
+#ifndef RB_HPP
 #define RB_HPP
 
 #include<stdio.h>
@@ -16,12 +16,14 @@ struct RecordRB{
 struct TreeRB{
 	RecordRB reg;
 	TreeRB *esq, *dir;
-	TreeRB *pai; 
+	TreeRB *pai;
 	bool cor;  // (FALSE = VERMELHOR, TRUE = PRETO)
 };
 
 
 TreeRB* CreateTreeRB();
+
+void initializeTreeRB(TreeRB **t);
 
 TreeRB *tree_minimum(TreeRB *auxiliar);
 
@@ -31,7 +33,9 @@ void rotacaoSimplesDireita(TreeRB **raiz, TreeRB *child);
 
 void insertFixUp(TreeRB **raiz, TreeRB *child);
 
-void insertTreeRB(TreeRB **t, TreeRB **pai, TreeRB **raiz, RecordRB r);
+void insertTreeRB(TreeRB **t, RecordRB r);
+
+void TreeRB_insert(TreeRB **t, TreeRB *x, TreeRB *y, TreeRB *temp);
 
 void removeTreeRB(TreeRB **t, TreeRB* z, TreeRB* y, TreeRB *x);
 
