@@ -86,7 +86,7 @@
 <p>Para coletar o tempo gasto para cada interação nas diferentes estruturas, utilizou-se a biblioteca <code>< chrono ></code>, bem como o <code>namespasce chrono</code>. Inicialmente, tentou-se utilziar a biblioteca <code>< time.h ></code>, porém, a mesma mostrou desempenho duvidoso enquanto rodando no Windows 10 em um WSL de Ubuntu. Por conta disso, seus resultados não compatíveis trouxeram a necessiade de uma nova bilbioteca que tivesse haver com tempo de execução. A Chrono, por sua vez, mostrou-se eficiente mesmo no Win10, exibindo resultados compatíveis e bastante precisos. Sua implementação não é tão simples quanto a da outro bilbioteca, porém não é nada muito complexo também!</p>
 
 <div align="center">
-<img src="imgs/iniciaTempo.png">ㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/iniciaTempo.svg">ㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 4: Inicialização/declaração necessárias da bib. Chrono.</i>
 </div>
 
