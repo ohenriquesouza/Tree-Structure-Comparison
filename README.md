@@ -96,6 +96,8 @@
 
 # RESULTADOS E ANÁLISE
 
+<p>Antes de qualquer análise, é importante lembrar que os testes apresentarão resultados diferentes para diferentes máquinas que rodarem o programa. Como diz a intuição, máquinas mais potentes, apresentarão resultados melhores. O computador no qual foi rodado todos os testes que verão abaixo possui as seguintes configurações: Processador Intel i7 - 4790K, 8GB de memória RAM e GPU GTX 1050Ti 4GB VRAN.</p>
+
 <p>Após terminar todo o projeto, realizou-se diversos testes (mais especificadamente 3 testes para cada tamanho de arquivo), e tirou-se a média de tempo que cada estrutura gastou para realizar determinada ação. É importante lembrar que para a função <code>Search</code>, utilizou-se como padrão o arquivo "entrada.txt", o qual carregava consigo 10.000 valores flutuantes que seriam pesquisados em cada estrutura. Desses dez mil arquivos, alguns deles (60%) propositalmente foram inseridos sabendo que os mesmos <b>NÃO</b> existem em nenhuma das entradas, enquanto os outros 40%, são valores que existem nos arquivos, por tanto, estarão dentro das estruturas, se tudo tiver ocorrido be. Os resultados obtidos estão na grandeza dos segundos, e podem ser visualizados abaixo.</p>
 
 | Entrada: 500           |  Insert                            |  Search      | Remove     |
@@ -229,6 +231,17 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
 </ul>
 
 <hr/>
+
+# REFERÊNCIAS
+
+<ul>
+	<li>https://sites.google.com/site/proffdesiqueiraed/aulas/aula-10---arvores</li>
+	<li>https://blog.pantuza.com/artigos/o-algoritmo-de-ordenacao-quicksort</li>
+	<li>https://github.com/mpiress</li>
+	<li>https://www.geeksforgeeks.org/quick-sort/</li>
+	<li><b>ROSEN, Kenneth</b>. Matemática Discreta e Suas Aplicações 6ª ed. São Paulo: McGraw-Hill Interamericana do Brasil Ltda. 2009.</li>
+</ul>
+
 
 # AUTOR
 Criado por Henrique Souza Fagundes;
