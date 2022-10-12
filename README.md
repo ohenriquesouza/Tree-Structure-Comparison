@@ -51,7 +51,7 @@
 </br>
 
 <div align="center">
-<img src="imgs/initializeTreeRB.svg">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/initializeTreeRB.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 1: Função <code>initializeTreeRB()</code> modificada.</i>
 </div>
 
@@ -87,7 +87,7 @@
 
 <div align="center">
 <img src="imgs/iniciaTempo.png">ㅤㅤㅤㅤㅤㅤㅤ
-<i>Figura 4: Inicialização/declaração necessárias da bib. Chrono..</i>
+<i>Figura 4: Inicialização/declaração necessárias da bib. Chrono.</i>
 </div>
 
 <p>Perceba que é atribuido como valor para cada variável a função <code>(t1 - t1)</code>, que nada mais serve para zera-las, evitando lixo de memória e tempos sobrepostos. Provavelmente exista algum método próprio para isso, ou um jeito mais inteligente de se fazer. Este está funcionando, e foi o pensado na hora, por tanto, está ótimo!.</p>
