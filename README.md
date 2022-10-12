@@ -51,7 +51,7 @@
 </br>
 
 <div align="center">
-<img src="imgs/initializeTreeRB.svg">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/initializeTreeRB.svg">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 1: Função <code>initializeTreeRB()</code> modificada.</i>
 </div>
 
@@ -61,7 +61,7 @@
 <p>Todas as operações acontecem dentro de uma mesma função, a <code>leArquivos( TAM )</code>. Essa é a única função chamada no main do programa e, a cada chamada passa um tamanho TAM diferente, onde cada TAM representa um arquivo. Os arquivos dos quais o programa irá retirar os valores tem uma formatação padrão enquanto ao seus nomes. Para o ideal funcionamento do algoritmo, os arquivos devem ter como nome a seguinte estruura: <code>(TAM)NumbersFile.txt</code> como mostra a figura 2.
 
 <div align="center">
-<img src="imgs/arquivosLEITURA.png">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/arquivosLEITURA.png">ㅤㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 2: Estrutura padrão para os nomes dos arquivos.</i>
 </div>
 
@@ -73,7 +73,7 @@
 
 <div align="center">
 <img src="imgs/insercaoEXEMPLO
-.png">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 3: Exemplo de como a inserção é feita/chamada.</i>
 </div>
 
@@ -86,7 +86,7 @@
 <p>Para coletar o tempo gasto para cada interação nas diferentes estruturas, utilizou-se a biblioteca <code>< chrono ></code>, bem como o <code>namespasce chrono</code>. Inicialmente, tentou-se utilziar a biblioteca <code>< time.h ></code>, porém, a mesma mostrou desempenho duvidoso enquanto rodando no Windows 10 em um WSL de Ubuntu. Por conta disso, seus resultados não compatíveis trouxeram a necessiade de uma nova bilbioteca que tivesse haver com tempo de execução. A Chrono, por sua vez, mostrou-se eficiente mesmo no Win10, exibindo resultados compatíveis e bastante precisos. Sua implementação não é tão simples quanto a da outro bilbioteca, porém não é nada muito complexo também!</p>
 
 <div align="center">
-<img src="imgs/iniciaTempo.png">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/iniciaTempo.png">ㅤㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 4: Inicialização/declaração necessárias da bib. Chrono..</i>
 </div>
 
