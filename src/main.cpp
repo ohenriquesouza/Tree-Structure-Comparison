@@ -2,6 +2,7 @@
 #include "fila.hpp"
 #include "tree.hpp"
 #include "rb.hpp"
+#include "quicksort.hpp"
 #include <iostream>
 #include <map>
 #include <unordered_map>
@@ -11,8 +12,11 @@
 #include <vector>
 #include <bits/stdc++.h>
 #include <ctime>
+#include <ratio>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 void learquivos(int TAM){
 
@@ -37,7 +41,15 @@ void learquivos(int TAM){
 
     string linha;
 
-    double tempo_gastoVector = 0.0, tempo_gastoAPB = 0.0, tempo_gastoAVL = 0.0, tempo_gastoRB = 0.0, tempo_gastoMAPA = 0.0, tempo_gastou_MAPA = 0.0;
+    steady_clock::time_point t1 = steady_clock::now();
+    steady_clock::time_point t2;
+
+    duration <double> tempo_gastoVector = duration_cast<duration<double>>(t1 - t1);
+    duration <double> tempo_gastoAPB = duration_cast<duration<double>>(t1 - t1);
+    duration <double> tempo_gastoAVL = duration_cast<duration<double>>(t1 - t1);
+    duration <double> tempo_gastoRB = duration_cast<duration<double>>(t1 - t1);
+    duration <double> tempo_gastoMAPA = duration_cast<duration<double>>(t1 - t1);
+    duration <double> tempo_gastou_MAPA = duration_cast<duration<double>>(t1 - t1);
 
     float auxiliar;
 
@@ -48,18 +60,6 @@ void learquivos(int TAM){
     caminho.append(to_string(TAM)).append("NumbersFile.txt");
 
     myfile.open(caminho);
-
-    clock_t beginAPB;
-
-    clock_t beginAVL;
-
-    clock_t beginRB;
-
-    clock_t beginMAPA;
-
-    clock_t beginu_MAPA;
-
-    clock_t beginVector;
 
     if(myfile.is_open()){
 
@@ -73,42 +73,56 @@ void learquivos(int TAM){
 
             r.value = rAVL.value = rRB.value = 1;
 
-            beginAPB = clock();
+            t1 = steady_clock::now();
             insertTree(&raizAPB, r);
-            tempo_gastoAPB += ((double)(clock() - beginAPB) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoAPB += duration_cast<duration<double>>(t2 - t1);
 
-            beginAVL = clock();
+            t1 = steady_clock::now();
             insertTreeAVL(&raizAVL, rAVL);
-            tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoAVL += duration_cast<duration<double>>(t2 - t1);
 
-            beginRB = clock();
+            t1 = steady_clock::now();
             insertTreeRB(&raizRB, rRB);
-            tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoRB += duration_cast<duration<double>>(t2 - t1);
 
-            beginMAPA = clock();
+            t1 = steady_clock::now();
             Mapa.insert({auxiliar, 1});
-            tempo_gastoMAPA += ((double)(clock() - beginMAPA) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoMAPA += duration_cast<duration<double>>(t2 - t1);
 
-            beginu_MAPA = clock();
+            t1 = steady_clock::now();
             u_Mapa.insert({auxiliar, 1});
-            tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastou_MAPA += duration_cast<duration<double>>(t2 - t1);
+        
 
-            beginVector = clock();
+            t1 = steady_clock::now();
             ComparaTempo.push_back(auxiliar);
-            sort(ComparaTempo.begin(), ComparaTempo.end()); //ordena o vector
-            tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoVector += duration_cast<duration<double>>(t2 - t1);
+            // tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
 
         }
+
+        t1 = steady_clock::now();
+        Quicksort sort(ComparaTempo);
+        sort.Sort();
+        t2 = steady_clock::now();
+        tempo_gastoVector += duration_cast<duration<double>>(t2 - t1);
+        // tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
 
         myfile.close();
 
         printf("\n\n---------------------------------INÍCIO DAS INSERÇÕES---------------------------------\n\n");
-        printf("* %d elementos inseridos na Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoAPB);
-        printf("* %d elementos inseridos na Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoAVL);
-        printf("* %d elementos inseridos na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoRB);
-        printf("* %d elementos inseridos no Mapa com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoMAPA);
-        printf("* %d elementos inseridos no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastou_MAPA);
-        printf("* %d elementos inseridos e ordenados no Vector com sucesso, tempo decorrido: %0.6lf(s)\n",TAM, tempo_gastoVector);
+        cout<<"* "<<TAM<<" elementos inseridos na Árvore binária com sucesso, tempo decorrido: "<<tempo_gastoAPB.count()<<"s"<<endl;
+        cout<<"* "<<TAM<<" elementos inseridos na Árvore AVL com sucesso, tempo decorrido: "<<tempo_gastoAVL.count()<<"s"<<endl;
+        cout<<"* "<<TAM<<" elementos inseridos na Árvore Red/Black com sucesso, tempo decorrido: "<<tempo_gastoRB.count()<<"s"<<endl;
+        cout<<"* "<<TAM<<" elementos inseridos no Mapa com sucesso, tempo decorrido: "<<tempo_gastoMAPA.count()<<"s"<<endl;
+        cout<<"* "<<TAM<<" elementos inseridos no Mapa Desordenado com sucesso, tempo decorrido: "<<tempo_gastou_MAPA.count()<<"s"<<endl;
+        cout<<"* "<<TAM<<" elementos inseridos e ordenados no Vector com sucesso, tempo decorrido: "<<tempo_gastoVector.count()<<"s"<<endl;
 
     }else{
 
@@ -125,7 +139,12 @@ void learquivos(int TAM){
 
     myfile2.open(caminho);
 
-    tempo_gastoAPB =  tempo_gastoAVL = tempo_gastoRB = 0;
+    tempo_gastoVector = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoAPB = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoAVL = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoRB = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoMAPA = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastou_MAPA = duration_cast<duration<double>>(t1 - t1);
 
     if(myfile2.is_open()){
 
@@ -147,43 +166,49 @@ void learquivos(int TAM){
 
             r.value = rAVL.value = rRB.value = 1;
 
-            beginAPB = clock();
+            t1 = steady_clock::now();
             isInTreeAPB(raizAPB, r);
-            tempo_gastoAPB += ((double)(clock() - beginAPB) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoAPB += duration_cast<duration<double>>(t2 - t1);
 
-            beginAVL = clock();
+            t1 = steady_clock::now();
             isInTreeAVL(raizAVL, rAVL);
-            tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoAVL += duration_cast<duration<double>>(t2 - t1);
 
-            beginRB = clock();
+            t1 = steady_clock::now();
             pesquisaRB(&raizRB, &raizRB, rRB);
-            tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoRB += duration_cast<duration<double>>(t2 - t1);
 
-            beginMAPA = clock();
+            t1 = steady_clock::now();
             it = Mapa.find(auxiliar);
             if(it != Mapa.end()){/*cout<<"achei"*/;}
-            tempo_gastoMAPA += ((double)(clock() - beginMAPA) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoMAPA += duration_cast<duration<double>>(t2 - t1);
 
-            beginu_MAPA = clock();
+            t1 = steady_clock::now();
             itr = u_Mapa.find(auxiliar);
             if(itr != u_Mapa.end()){/*cout<<"achei"*/;}
-            tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastou_MAPA += duration_cast<duration<double>>(t2 - t1);
 
-            beginVector = clock();
+            t1 = steady_clock::now();
             binary_search(ComparaTempo.begin(), ComparaTempo.end(), auxiliar);
-            tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoVector += duration_cast<duration<double>>(t2 - t1);
 
         }
 
         myfile2.close();
 
         printf("\n\n---------------------------------INÍCIO DAS BUSCAS---------------------------------\n\n");
-        printf("* Todos os elementos foram pesquisados na Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAPB);
-        printf("* Todos os elementos foram pesquisados na Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAVL);
-        printf("* Todos os elementos foram pesquisados na Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoRB);
-        printf("* Todos os elementos foram pesquisados no Mapa com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoMAPA);
-        printf("* Todos os elementos foram pesquisados no Mapa Desordenado com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastou_MAPA);
-        printf("* Todos os elementos foram pesquisados no Vector com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoVector);
+        cout<<"* Todos os elementos foram pesquisados na Árvore binária com sucesso, tempo decorrido: "<<tempo_gastoAPB.count()<<"s"<<endl;
+        cout<<"* Todos os elementos foram pesquisados na Árvore AVL com sucesso, tempo decorrido: "<<tempo_gastoAVL.count()<<"s"<<endl;
+        cout<<"* Todos os elementos foram pesquisados na Árvore Red/Black com sucesso, tempo decorrido: "<<tempo_gastoRB.count()<<"s"<<endl;
+        cout<<"* Todos os elementos foram pesquisados no Mapa com sucesso, tempo decorrido: "<<tempo_gastoMAPA.count()<<"s"<<endl;
+        cout<<"* Todos os elementos foram pesquisados no Mapa Desordenado com sucesso, tempo decorrido: "<<tempo_gastou_MAPA.count()<<"s"<<endl;
+        cout<<"* Todos os elementos foram pesquisados no Vector com sucesso, tempo decorrido: "<<tempo_gastoVector.count()<<"s"<<endl;
 
     }else{
 
@@ -200,7 +225,12 @@ void learquivos(int TAM){
 
     myfile3.open(caminho);
 
-    tempo_gastoAPB =  tempo_gastoAVL = tempo_gastoRB = 0;
+    tempo_gastoVector = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoAPB = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoAVL = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoRB = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastoMAPA = duration_cast<duration<double>>(t1 - t1);
+    tempo_gastou_MAPA = duration_cast<duration<double>>(t1 - t1);
 
     if(myfile3.is_open()){
 
@@ -218,42 +248,48 @@ void learquivos(int TAM){
 
             r.value = rAVL.value =  rRB.value = 1;
 
-            beginAPB = clock();
+            t1 = steady_clock::now();
             removeTree(&raizAPB, r);
-            tempo_gastoAPB += ((double)(clock() - beginAPB) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoAPB += duration_cast<duration<double>>(t2 - t1);
 
-            beginAVL = clock();
+            t1 = steady_clock::now();
             removeTreeAVL(&raizAVL, &raizAVL, rAVL);
-            tempo_gastoAVL += ((double)(clock() - beginAVL) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoAVL += duration_cast<duration<double>>(t2 - t1);
 
-            beginRB = clock();
+            t1 = steady_clock::now();
             pesquisaRBparaRemover(&raizRB, raizRB, rRB);
-            tempo_gastoRB += ((double)(clock() - beginRB) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoRB += duration_cast<duration<double>>(t2 - t1);
 
-            beginMAPA = clock();
+            t1 = steady_clock::now();
             it = Mapa.find(auxiliar);
             if(it != Mapa.end()){Mapa.erase(it);}
-            tempo_gastoMAPA += ((double)(clock() - beginMAPA) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoMAPA += duration_cast<duration<double>>(t2 - t1);
 
-            beginu_MAPA = clock();
+            t1 = steady_clock::now();
             itr = u_Mapa.find(auxiliar);
             if(itr != u_Mapa.end()){u_Mapa.erase(itr);}
-            tempo_gastou_MAPA += ((double)(clock() - beginu_MAPA) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastou_MAPA += duration_cast<duration<double>>(t2 - t1);
 
-            beginVector = clock();
+            t1 = steady_clock::now();
             if(binary_search(ComparaTempo.begin(), ComparaTempo.end(), auxiliar)){ComparaTempo.erase(lower_bound(ComparaTempo.begin(), ComparaTempo.end(), auxiliar));}
-            tempo_gastoVector += ((double)(clock() - beginVector) / CLOCKS_PER_SEC);
+            t2 = steady_clock::now();
+            tempo_gastoVector += duration_cast<duration<double>>(t2 - t1);
         }
 
         myfile3.close();
 
         printf("\n\n---------------------------------INÍCIO DAS REMOÇÕES---------------------------------\n\n");
-        printf("* Elementos foram removidos da Árvore binária com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAPB);
-        printf("* Elementos foram removidos da Árvore AVL com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoAVL);
-        printf("* Elementos foram removidos da Árvore Red/Black com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoRB);
-        printf("* Elementos foram removidos do Mapa com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoMAPA);
-        printf("* Elementos foram removidos do Mapa Desordenado com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastou_MAPA);
-        printf("* Elementos foram removidos do Vector com sucesso, tempo decorrido: %0.6lf(s)\n", tempo_gastoVector);
+        cout<<"* Elementos foram removidos da Árvore binária com sucesso, tempo decorrido: "<<tempo_gastoAPB.count()<<"s"<<endl;
+        cout<<"* Elementos foram removidos da Árvore AVL com sucesso, tempo decorrido: "<<tempo_gastoAVL.count()<<"s"<<endl;
+        cout<<"* Elementos foram removidos da Árvore Red/Black com sucesso, tempo decorrido: "<<tempo_gastoRB.count()<<"s"<<endl;
+        cout<<"* Elementos foram removidos do Mapa com sucesso, tempo decorrido: "<<tempo_gastoMAPA.count()<<"s"<<endl;
+        cout<<"* Elementos foram removidos do Mapa Desordenado com sucesso, tempo decorrido: "<<tempo_gastou_MAPA.count()<<"s"<<endl;
+        cout<<"* Elementos foram removidos do Vector com sucesso, tempo decorrido: "<<tempo_gastoVector.count()<<"s"<<endl;
 
     }else{
 
@@ -268,9 +304,9 @@ void learquivos(int TAM){
 
 int main(){
 
-    //learquivos(500);
+    learquivos(500);
 
-    learquivos(5000);
+    //learquivos(5000);
 
     //learquivos(50000);
 
