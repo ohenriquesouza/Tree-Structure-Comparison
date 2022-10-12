@@ -58,13 +58,14 @@
 </br>
 <p>No programa, não há nenhum tipo de menu, sendo assim, todas as estruturas irão rodar com todos os arquivos automaticamente. Caso o usuário deseje operar com apenas um dos arquivos, no <code>main()</code>, deve comentar adicionando " // " antes das linhas referentes aos arquivos que ele não deseja executar.</p>
 
-<p>Todas as operações acontecem dentro de uma mesma função, a <code>leArquivos( TAM )</code>. Essa é a única função chamada no main do programa e, a cada chamada passa um tamanho TAM diferente, onde cada TAM representa um arquivo. Os arquivos dos quais o programa irá retirar os valores tem uma formatação padrão enquanto ao seus nomes. Para o ideal funcionamento do algoritmo, os arquivos devem ter como nome a seguinte estrutura: <code>(TAM)NumbersFile.txt</code> como mostra a figura 2.
+<p>Todas as operações acontecem dentro de uma mesma função, a <code>leArquivos( TAM )</code>. Essa é a única função chamada no main do programa e, a cada chamada passa um tamanho TAM diferente, onde cada TAM representa um arquivo. Os arquivos dos quais o programa irá retirar os valores tem uma formatação padrão enquanto ao seus nomes. Para o ideal funcionamento do algoritmo, os arquivos devem ter como nome a seguinte estrutura: <code>(TAM)NumbersFile.txt</code> como mostra a figura 2.<br/>
 
 <div align="center">
 <img src="imgs/arquivosLEITURA.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 2: Estrutura padrão para os nomes dos arquivos.</i>
 </div>
 
+<br/>
 <p>Caso o usuário deseje adicionar um novo arquivo para testes, deve serguir esse formato, além de garantir que todos os valores presentes dentro do arquivo sejam "flutuantes" com até 6 casas decimais.</p>
 
 <p>Na figura 2 é possível perceber que tem um arquivo que foge dos padrões e recebe o nome de <code>entrada.txt</code>. Esse arquivo é onde estão armazenados os valores aos quais, após a inserção, serão pesquisados dentro das estruturas. Com isso, caso o usuário deseje altera-los, basta inserir um novo arquivo de entrada para pesquisa, mas mantendo o nome <code>entrada.txt</code> para que não seja necessário mudar nada nas funções de leitura.</p>
@@ -72,8 +73,7 @@
 <p>A leitura dos arquivos acontece de forma padrão, a qual já foi citada várias vezes em fórums e outros READMEs. Utilizando a bilbioteca <code>< fstream ></code> e sua função <code>is_open()</code> seguida de um <code>while</code> que roda até que o arquivo chegue ao fim, cada linha lida é capturada com o <code>getline()</code>, armazenada em uma <code>string LINHA</code> que com o auxílio da função <code>stof()</code> é converitda para valor "flutuante" e associada a variável <code>float AUX</code>. Por fim, esse valor agora float, é inserido nas estruturas.</p>
 
 <div align="center">
-<img src="imgs/insercaoEXEMPLO
-.png">ㅤㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/insercaoEXEMPLO.png"> <br/>ㅤㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 3: Exemplo de como a inserção é feita/chamada.</i>
 </div>
 
