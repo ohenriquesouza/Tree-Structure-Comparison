@@ -77,6 +77,7 @@
 <i>Figura 3: Exemplo de como a inserção é feita/chamada.</i>
 </div>
 
+<br/>
 <p>Exatamente este mesmo passo a passo é usado para todas as demais estruturas de dados, com excessão do Vector que, como pedido pelo professor, a pesquisa deveria ser feita a partir do método de pesquisa binária. Por isso, um tempo a mais é necessário para que ele seja ordenado, uma vez que apenas é possível realizar busca binária em estruturas ordenadas. Para tal, foi implementado um <i>QuickSort</i> que mostrou desempenho incível durante a ordenação, mas isso será discutido daqui a pouco.</p>
 
 <p>Na verdade, essa estrutura mostrada na figura 3 é usada para todos os metodos em todas as estruturas de dados, com alteração, é claro da função chamada (insert, serach e remove), sendo assim, qualquer possível manutenção no código ou alteração por parte do usuário seria de extrema tranquilidade, uma vez que, tudo segue exatamente o mesmo padrão.</p>
@@ -90,6 +91,7 @@
 <center><i>Figura 4: Inicialização/declaração necessárias da bib. Chrono.</i></center>
 </div>
 
+<br/>
 <p>Perceba que é atribuido como valor para cada variável a função <code>(t1 - t1)</code>, que nada mais serve para zera-las, evitando lixo de memória e tempos sobrepostos. Provavelmente exista algum método próprio para isso, ou um jeito mais inteligente de se fazer. Este está funcionando, e foi o pensado na hora, por tanto, está ótimo!.</p>
 
 # RESULTADOS E ANÁLISE
