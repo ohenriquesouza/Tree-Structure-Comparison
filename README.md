@@ -150,24 +150,32 @@
 <p>Ao analisar os resultados, fica claro a discrepância quanto a eficiência da árvore Red/Black com as demais árvores. Quanto mais o tamanho dos arquivos aumentam para cada função (insert, search, remove), mais as árvores Binária de Busca e AVL se mostram menos eficientes. Os gráficos a seguir plotam exatamente essa relação [Tempo <b>x</b> Tamanho].</p>
 
 <div align="center">
-<img src="imgs/500g.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/500g.png" width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 5: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
 </div>
 
+<br/>
+
 <div align="center">
-<img src="imgs/5000g.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/5000g.png"width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 6: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
 </div>
 
+<br/>
+
 <div align="center">
-<img src="imgs/50000g.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/50000g.png"width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 7: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
 </div>
 
+<br/>
+
 <div align="center">
-<img src="imgs/500000g.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/500000g.png"width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 8: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
 </div>
+
+<br/>
 
 <p>É importante lembrar que, o eixo <i>Y</i> está na grandeza de segundos, por tanto, para converter em minutos, deve se dividir o valor por 60. Analisando os gráficos, chega a ser engraçada a tamanha ineficiência das duas árvores APB e AVL, uma vez que os valores computados pelas outras estruturas são tão inferiores, que chegam a ser insignificantes ao se observar.</p>
 
