@@ -31,7 +31,7 @@
 <li>Raiz: Toda arvore possui o nó raiz que é o nó inicial da árvore;</li>
 <li>Grau: o número de filhos que um nó possui;</li>
 <li>Nível (ou profundidade): a distância de um nó até a raiz;</li>
-<li>Altura: o maior nível encontrado na árvore (altura de uma árvore com n nós pode variar de lg(n) até n-1;</li>
+<li>Altura: o maior nível encontrado na árvore (altura de uma árvore com n nós pode variar de lg(n) até n-1);</li>
 <li>Folha: o nó que não possui filho.</li>
 </ul>
 
