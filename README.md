@@ -78,9 +78,11 @@
 </div>
 
 <br/>
-<p>Exatamente este mesmo passo a passo é usado para todas as demais estruturas de dados, com excessão do Vector que, como pedido pelo professor, a pesquisa deveria ser feita a partir do método de pesquisa binária. Por isso, um tempo a mais é necessário para que ele seja ordenado, uma vez que apenas é possível realizar busca binária em estruturas ordenadas. Para tal, foi implementado um <i>QuickSort</i> que mostrou desempenho incível durante a ordenação, mas isso será discutido daqui a pouco.</p>
+<p>Exatamente este mesmo passo a passo é usado para todas as demais estruturas de dados, com excessão do Vector que, como pedido pelo professor, a pesquisa deveria ser feita a partir do método de pesquisa binária. Por isso, um tempo a mais é necessário para que ele seja ordenado, uma vez que apenas é possível realizar busca binária em estruturas ordenadas. Para tal, foi implementado um <i>QuickSort</i> que mostrou desempenho muito bom durante a ordenação, mas isso será discutido daqui a pouco.</p>
 
 <p>Na verdade, essa estrutura mostrada na figura 3 é usada para todos os metodos em todas as estruturas de dados, com alteração, é claro da função chamada (insert, serach e remove), sendo assim, qualquer possível manutenção no código ou alteração por parte do usuário seria de extrema tranquilidade, uma vez que, tudo segue exatamente o mesmo padrão.</p>
+
+<p>É importante citar que: para os métodos de pesquisa e remoção na estrutra Vector, utilizou-se de funções muito interessantes, próprias da linguagem C++. As funções em questão foram: <code>binary_search()</code> e a <code>lower_bound()</code> (ambos referenciadas no final do arquivo). A função <code>binary_search()</code>, como indica o nome, realiza uma busca binária no vector (que já deve estar ordenado) e retorna <i>true</i> ou <i>false</i>, caso encontre o número desejado ou não, respectivamente. A <code>lower_bound()</code> por sua vez, realiza uma busca linear. Essa função foi utilizada na parte de remoçao do valor de dentro da estrutura. Devido a eficiência da pesquisa binária, proporcionada pela função, o vector apresenta um tempo de pesquisa bem satisfatório, tempo esse que sofre uma certa defasagem na parte da remoção, uma vez que utiiza também a <code>lower_bound()</code>, que realiza busca linear, o que explica a diferença de tempo.</p>
 
 <h2>🕗 Tempo: </h2>
 
