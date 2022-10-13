@@ -58,7 +58,7 @@
 </br>
 <p>No programa, não há nenhum tipo de menu, sendo assim, todas as estruturas irão rodar com todos os arquivos automaticamente. Caso o usuário deseje operar com apenas um dos arquivos, no <code>main()</code>, deve comentar adicionando " // " antes das linhas referentes aos arquivos que ele não deseja executar.</p>
 
-<p>Todas as operações acontecem dentro de uma mesma função, a <code>leArquivos( TAM )</code>. Essa é a única função chamada no main do programa e, a cada chamada passa um tamanho TAM diferente, onde cada TAM representa um arquivo. Os arquivos dos quais o programa irá retirar os valores tem uma formatação padrão enquanto ao seus nomes. Para o ideal funcionamento do algoritmo, os arquivos devem ter como nome a seguinte estrutura: <code>(TAM)NumbersFile.txt</code> como mostra a figura 2.<br/>
+<p>Todas as operações acontecem dentro de uma mesma função, a <code>leArquivos( TAM )</code>. Essa é a única função chamada no main do programa e, a cada chamada passa um tamanho TAM diferente, onde cada TAM representa um arquivo. Os arquivos dos quais o programa irá retirar os valores tem uma formatação padrão enquanto ao seus nomes. Para o ideal funcionamento do algoritmo, os arquivos devem ter como nome a seguinte estrutura: <code>(TAM)NumbersFile.txt</code> como mostra a figura 4.<br/>
 
 <div align="center">
 <img src="imgs/arquivosLEITURA.png">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
@@ -96,48 +96,48 @@
 
 # RESULTADOS E ANÁLISE
 
-<p>Antes de qualquer análise, é importante lembrar que os testes apresentarão resultados diferentes para diferentes máquinas que rodarem o programa. Como diz a intuição, máquinas mais potentes, apresentarão resultados melhores. O computador no qual foi rodado todos os testes que verão abaixo possui as seguintes configurações: Processador Intel i7 - 4790K, 8GB de memória RAM e GPU GTX 1050Ti 4GB VRAN.</p>
+<p>Antes de qualquer análise, é importante lembrar que os testes apresentarão resultados diferentes para diferentes máquinas que rodarem o programa. Como diz a intuição, máquinas mais potentes, apresentarão resultados melhores. O computador no qual foi rodado todos os testes que verão abaixo possui as seguintes configurações: Processador Intel i7 - 4790K, 16GB de memória RAM e GPU GTX 1050Ti 4GB VRAM.</p>
 
 <p>Após terminar todo o projeto, realizou-se diversos testes (mais especificadamente 3 testes para cada tamanho de arquivo), e tirou-se a média de tempo que cada estrutura gastou para realizar determinada ação. É importante lembrar que para a função <code>Search</code>, utilizou-se como padrão o arquivo "entrada.txt", o qual carregava consigo 10.000 valores flutuantes que seriam pesquisados em cada estrutura. Desses dez mil arquivos, alguns deles (60%) propositalmente foram inseridos sabendo que os mesmos <b>NÃO</b> existem em nenhuma das entradas, enquanto os outros 40%, são valores que existem nos arquivos, por tanto, estarão dentro das estruturas, se tudo tiver ocorrido be. Os resultados obtidos estão na grandeza dos segundos, e podem ser visualizados abaixo.</p>
 
 | Entrada: 500           |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
-|  <i>"APB"</i>           | 0,0004302  s                      |0,0425016 s   |0,0069817 s |
-|  <i>"AVL"</i>           | 0,0004856  s                      |0,419173  s   |0,0071158 s |
-|  <i>"ARB"</i>           | 0,0004316  s                      |0,0067887 s   |0,0065474 s |
-|  <i>"MAP"</i>           | 0,0006265  s                      |0,0086286 s   |0,0088016 s |
-|  <i>"U_MAP"</i>         | 0,0006222  s                      |0,0085109 s   |0,0085326 s |
-|  <i>"VECTOR"</i>        | 0,0004315  s                      |0,0085571 s   |0,0086568 s |
+|  <i>"APB"</i>           | 0,0004435  s                      |0,0067838 s   |0,0069817 s |
+|  <i>"AVL"</i>           | 0,0004673  s                      |0,0069382  s  |0,0068141 s |
+|  <i>"ARB"</i>           | 0,0004237  s                      |0,0069413 s   |0,0065474 s |
+|  <i>"MAP"</i>           | 0,0005779  s                      |0,0085797 s   |0,0088016 s |
+|  <i>"U_MAP"</i>         | 0,0005482  s                      |0,0081461 s   |0,0085326 s |
+|  <i>"VECTOR"</i>        | 0,0004403  s                      |0,0087349 s   |0,0086568 s |
 </hr>
 
 | Entrada: 5000          |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
-|  <i>"APB"</i>          | 0,0046470  s                       |0,931 s       |0,0076979 s |
-|  <i>"AVL"</i>          | 0,0052898  s                       |0,705084  s   |0,0074918 s |
-|  <i>"ARB"</i>          | 0,0044727  s                       |0,0077954 s   |0,0065756 s |
-|  <i>"MAP"</i>          | 0,0060923  s                       |0,0098897 s   |0,0095404 s |
-|  <i>"U_MAP"</i>        | 0,0053704  s                       |0,0087963 s   |0,0087494 s |
-|  <i>"VECTOR"</i>       | 0,0045561  s                       |0,0099702 s   |0,0096092 s |
+|  <i>"APB"</i>          | 0,0063266  s                       |0,0081169 s       |0,0070201 s |
+|  <i>"AVL"</i>          | 0,00678464  s                       |0,00792  s   |0,0067796 s |
+|  <i>"ARB"</i>          | 0,005797  s                       |0,0084535 s   |0,0070869 s |
+|  <i>"MAP"</i>          | 0,0078614  s                       |0,0106417 s   |0,0102997 s |
+|  <i>"U_MAP"</i>        | 0,0070108  s                       |0,009399 s   |0,0100015 s |
+|  <i>"VECTOR"</i>       | 0,0052704  s                       |0,0108431 s   |0,0102378 s |
 </hr>
 
 | Entrada: 50000         |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
-|  <i>"APB"</i>          | 0,0577741  s                       |14,6421 s     |0,0114723 s |
-|  <i>"AVL"</i>          | 0,062219   s                       |10,2599  s    |0,0099976 s |
-|  <i>"ARB"</i>          | 0,0498004  s                       |0,0110686 s   |0,0073805 s |
-|  <i>"MAP"</i>          | 0,0679396  s                       |0,0143497 s   |0,0139011 s |
-|  <i>"U_MAP"</i>        | 0,0615733  s                       |0,0120599 s   |0,0114058 s |
-|  <i>"VECTOR"</i>       | 0,0475686  s                       |0,0154414 s   |0,0180312 s |
+|  <i>"APB"</i>          | 0,0749651  s                       |0,0071846 s     |0,006959 s |
+|  <i>"AVL"</i>          | 0,0773283   s                       |0,0074415  s    |0,0069605 s |
+|  <i>"ARB"</i>          | 0,0594196  s                       |0,0074063 s   |0,0070156 s |
+|  <i>"MAP"</i>          | 0,0836889  s                       |0,0101239 s   |0,0133071 s |
+|  <i>"U_MAP"</i>        | 0,0751497  s                       |0,0080505 s   |0,0105195 s |
+|  <i>"VECTOR"</i>       | 0,0515952  s                       |0,0105806 s   |0,0162057 s |
 </hr>
 
 | Entrada: 500000        |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
-|  <i>"APB"</i>          | 0,797044  s                        |210,743 s     |0,0119273 s |
-|  <i>"AVL"</i>          | 0,783368  s                        |180,515  s    |0,0097882 s |
-|  <i>"ARB"</i>          | 0,606567  s                        |0,0193723 s   |0,0067638 s |
-|  <i>"MAP"</i>          | 0,829979  s                        |0,0258988 s   |0,0134668 s |
-|  <i>"U_MAP"</i>        | 0,69385   s                        |0,0207344 s   |0,0106011 s |
-|  <i>"VECTOR"</i>       | 0,536605  s                        |0,024973 s    |0,0937327 s |
+|  <i>"APB"</i>          | 0,864255  s                        |210,743 s     |0,0069133 s |
+|  <i>"AVL"</i>          | 0,838687  s                        |180,515  s    |0,0069745 s |
+|  <i>"ARB"</i>          | 0,643372  s                        |0,0193723 s   |0,0068262 s |
+|  <i>"MAP"</i>          | 0,88168  s                        |0,0258988 s   |0,0159773 s |
+|  <i>"U_MAP"</i>        | 0,722394   s                        |0,0207344 s   |0,0109511 s |
+|  <i>"VECTOR"</i>       | 0,5242  s                        |0,024973 s    |0,0964162 s |
 </hr>
 
 | Legenda                |  Significado                                                                                      |                     
@@ -183,23 +183,23 @@
 
 <h2>📈 Conclusões: </h2>
 
-<p>Como citado no começo do texto, uma coisa que chama a atenção ao analisar os dados, é a excelente eficiência da ordenação <i>QuickSort</i>, que permitiu com que o vector, mesmo sendo "defasado" por precisar ser ordenado, conseguisse concluir a carga de testes com um tempo muito satisfatório. Entretanto, vale dizer que esse tempo absurdamente baixo não se dá pela estrutura do Vector, e sim pela eficiência do algorítmo Sort. Antes de implementar o QuickSort, utilizou-se a função <code>sort()</code> (C++), que usa um InsertionSort. Com ela, a inserção/ordenação de 50.000 entradas levava em torno de 20 - 23 minutos, valor este que se reduziu a uma fração de segundos com o quick. Para a entrada de 500.000 então... o insertion sort apresentou comportamento deplorável, demorando 7 horas (sim, HORAS!), para ordenar todos os valores durante a inserção. Com isso, pode-se concluir sobre o vector que: Para valores de entrada grandes, é essencial o usso de um bom algorítmo de ordenação, caso não seja possível, exclua essa estrutura da sua lista de opções, será horrível.</p>
+<p>Como citado no começo do texto, uma coisa que chama a atenção ao analisar os dados, é a excelente eficiência da ordenação <i>QuickSort</i>, que permitiu com que o vector, mesmo sendo "defasado" por precisar ser ordenado, conseguisse concluir a carga de testes com um tempo parcialmente satisfatório. Entretanto, vale dizer que esse tempo relativamente baixo não se dá pela estrutura em sí do Vector e sim pela eficiência do algorítmo Sort. Antes de implementar o QuickSort, utilizou-se apenas para fins comparativos, a ordenação BubbleSort. Com ela, a inserção/ordenação de 5.000 entradas levava em torno de 30 - 33 minutos, valor este que se reduziu a uma fração de segundos com o quick. Para a entrada de 500.000 então... o bubble sort apresentou comportamento deplorável, simplesmente não conseguindo concluir a inserção ordenada, nunca (O algoritmo ficou rodando por mais de 5 horas). Com isso, pode-se concluir sobre o vector que: Para valores de entrada grandes, é essencial o uso de um bom algorítmo de ordenação e ainda assim, apresentará resultados inferiores quando comparadas ás árvores. Caso não seja possível implementar um bom algorítmo de busca, exclua essa estrutura da sua lista de opções, será horrível.</p>
 
-<p>Sobre os dois tipos de Mapas disponibilizados pelo C++, é possível dizer que sim, eles apresentam ganhos em relação a tempo de execução, porém, apenas quando comparados ás árvores APB e AVL. Apesar de ambos apresentarem desempenho muito satisfatório também, em todos os testes eles ficaram atrás da Red/Black, além de serem mais rápidos e eficientes que o vector utilizando o QuickSort (O que ja é muito interessante). Devido a simplicidade que é utilizar essas estruturas, e o tempo extremamente satisfatório, conclui-se que sim, são boas opções para operar com grandes volumes de entradas. O mapa desordenado pricipalmente, por garantir sempre um tempo razoavelmente melhor que seu "irmão" ordenado.</p>
+<p>Sobre os dois tipos de Mapas disponibilizados pelo C++, é possível dizer que em não, eles não apresentam ganhos em relação a tempo de execução quando comparados ás estruturas árvores. Apesar de ambos apresentarem desempenho relativamente satisfatório, em todos os testes eles ficaram atrás das árvores testadas. Devido a simplicidade de implementar essas estruturas e o tempo de execução coerente, conclui-se que: apesar de não serem tão rápidos computacionalmente quanto ás árvores, são sim boas opções para operar com certos volumes de entradas.</p>
 
-<p>A rainha das estruturas nesses testes que foram realizados, com certeza foi a Árvore Red/Black. Apresentando desempenho muito superior ao esperado (uma vez que possui umas das implementações mais complicadas das estruturas analisadas, principalmente para remover valores), ela chegou como forte candidata ao título de melhor estrutura de dados para as funções analisadas, porém, sua difícil implementação com certeza a faz perder pontos neste ranking, uma vez que, o Mapa Desordenado por exemplo possui desempenho bem parecido com a Red/Black, apesar de nunca superá-la, a facilidade que ele proporciona ao programador com certeza deve ser levada em consideração.</p>
+<p>A rainha das estruturas nesses testes que foram realizados, com certeza foi a Árvore Red/Black. Apresentando desempenho muito superior ao esperado (uma vez que possui umas das implementações mais complicadas das estruturas analisadas, principalmente para remover valores), ela chegou como forte candidata ao título de melhor estrutura de dados para as funções analisadas, porém, sua difícil implementação com certeza a faz perder pontos neste ranking, uma vez que, as outras árvores aqui testadas (que não possuem uma implementação tão trabalhosa) também apresetaram um bom desempenho. Apesar disso, é possível perceber que tanto a APB, quanto a AVL perdem desempenho quando o volume de entrada aumenta consideravelmente.</p>
 
-<p>Em síntese, conclui-se que cada estrutura tem vantagens e desvantagens, como já era de se esperar. Analisando todos os valores obtidos pelas estruturas e as horas gastas se dedicando a cada uma delas, o resultado não podia ser diferente.</p>
+<p>Em síntese, conclui-se que cada estrutura tem vantagens e desvantagens, como já era de se esperar. Analisando todos os valores obtidos pelas estruturas e as horas gastas se dedicando a cada uma delas, o resultado foi o seguinte.</p>
 
 <ul>
-<li>🥇 <b>Mapas do C++</b>. Ótimo desempenho aliado a uma simples implementação; </li>
-<li>🥈<b>Árvore Red/Black</b>. Ótimo desempenho, porém difícil implementação;</li>
-<li>🥉<b>Vector (??)</b>. Bom desempenho, porém é 100% dependente de uma boa ordenação;</li>
-<li>🎖️<b>Árvore AVL</b>. Desempenho bom para pequenas entradas, porém insatisfatório para entradas/pesquisas relativamente grandes.</li>
-<li>😒<b>Árvore de Pesquisa Binária</b>. Desempenho relativamente bom apenas para entradas/pesquisas pequenas, muito ruim para leituras grandes.</li>
+<li>🥇<b>Árvore Red/Black</b>;</li>
+<li>🥈<b>Árvore AVL</b>;</li>
+<li>🥉<b>Árvore APB</b>;</li>
+<li>🎖️<b>Mapas (C++)</b>;</li>
+<li>😒<b>Vector</b>;</li>
 </ul>
 
-<p>Por fim, todas as estruturas foram capazes de finalizar e objetivar o trabalho. Apesar disso, não foram todas que apresentaram bom desempenho ao final. A escolha de determinada estrutura de dados não depende apenas do quanto ela se mostra eficiente. Cada tipo de problema pode exigir e se mostrar mais simples a partir de certa estrutura. Conclui-se então que, para os testes feitos, os mapas do C++ tiveram melhor custo/benefício de todas as estruturas, obtendo tempos excelentes e uma implementação super simples e intuitiva.</p>
+<p>Por fim, todas as estruturas foram capazes de finalizar e objetivar o trabalho. Apesar disso, não foram todas que apresentaram bom desempenho ao final. A escolha de determinada estrutura de dados não depende apenas do quanto ela se mostra eficiente. Cada tipo de problema pode exigir e se mostrar mais simples a partir de certa estrutura. Conclui-se então que, para os testes feitos, a Árvore Red/Black, apesar de possuir difícil implementação, teve melhor o melhor desempenho de todas as estruturas, obtendo tempos excelentes. Como consideração final, vale dizer que, mesmo perdendo nas comparações de tempo, o Unordered_Map (C++) se mostrou ser relativamente prático e bom. Precisando de praticamente uma única linha para gerar sua implementação, talvez (dependendo do problema), a diferença de tempo não seja um obstáculo que deva te impedir de usá-lo.</p>
 
 # COMPILAÇÃO E EXECUÇÃO
 
@@ -225,7 +225,7 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
 	<li><code>#include 'fstream'</code></li>
 	<li><code>#include 'vector'</code></li>
 	<li><code>#include 'algorithm'</code></li>
-    <li><code>#include 'chorno'</code></li>
+    <li><code>#include 'chrono'</code></li>
     <li><code>#include 'stdlib.h'</code></li>
     <li><code>#include 'stdbool.h'</code></li>
 </ul>

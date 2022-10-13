@@ -167,12 +167,12 @@ void learquivos(int TAM){
             r.value = rAVL.value = rRB.value = 1;
 
             t1 = steady_clock::now();
-            isInTreeAPB(raizAPB, r);
+            pesquisaAPB(&raizAPB, &raizAPB, r);
             t2 = steady_clock::now();
             tempo_gastoAPB += duration_cast<duration<double>>(t2 - t1);
 
             t1 = steady_clock::now();
-            isInTreeAVL(raizAVL, rAVL);
+            pesquisaAVL(&raizAVL, &raizAVL, rAVL);
             t2 = steady_clock::now();
             tempo_gastoAVL += duration_cast<duration<double>>(t2 - t1);
 
@@ -306,9 +306,9 @@ int main(){
 
     learquivos(500);
 
-    //learquivos(5000);
+    learquivos(5000);
 
-    //learquivos(50000);
+    learquivos(50000);
 
-    //learquivos(500000);
+    learquivos(500000);
 }
