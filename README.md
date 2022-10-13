@@ -154,35 +154,16 @@
 <p float="left">
 <img src="imgs/500g.png" width="500"/>
 <img src="imgs/5000g.png" width="500"/>
-
-
-
-
-<div align="center">
-<img src="imgs/500g.png" width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
-<i>Figura 5: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
-</div>
+<i>Figuras 5 e 6: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
+</p>
 
 <br/>
 
-<div align="center">
-<img src="imgs/5000g.png"width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
-<i>Figura 6: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
-</div>
-
-<br/>
-
-<div align="center">
-<img src="imgs/50000g.png"width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
-<i>Figura 7: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
-</div>
-
-<br/>
-
-<div align="center">
-<img src="imgs/500000g.png"width="600px">ㅤ<br/>ㅤㅤㅤㅤㅤㅤㅤ
-<i>Figura 8: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
-</div>
+<p float="left">
+<img src="imgs/50000g.png" width="500"/>
+<img src="imgs/500000g.png" width="500"/>
+<i>Figuras 7 e 8: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i>
+</p>
 
 <br/>
 
