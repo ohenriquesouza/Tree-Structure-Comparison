@@ -100,6 +100,9 @@
 
 <p>Após terminar todo o projeto, realizou-se diversos testes (mais especificadamente 3 testes para cada tamanho de arquivo), e tirou-se a média de tempo que cada estrutura gastou para realizar determinada ação. É importante lembrar que para a função <code>Search</code>, utilizou-se como padrão o arquivo "entrada.txt", o qual carregava consigo 10.000 valores flutuantes que seriam pesquisados em cada estrutura. Desses dez mil arquivos, alguns deles (60%) propositalmente foram inseridos sabendo que os mesmos <b>NÃO</b> existem em nenhuma das entradas, enquanto os outros 40%, são valores que existem nos arquivos, por tanto, estarão dentro das estruturas, se tudo tiver ocorrido be. Os resultados obtidos estão na grandeza dos segundos, e podem ser visualizados abaixo.</p>
 
+<table>
+<tr>
+<th>
 | Entrada: 500           |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
 |  <i>"APB"</i>           | 0,0004435  s                      |0,0067838 s   |0,0069817 s |
@@ -108,8 +111,11 @@
 |  <i>"MAP"</i>           | 0,0005779  s                      |0,0085797 s   |0,0088016 s |
 |  <i>"U_MAP"</i>         | 0,0005482  s                      |0,0081461 s   |0,0085326 s |
 |  <i>"VECTOR"</i>        | 0,0004403  s                      |0,0087349 s   |0,0086568 s |
-</hr>
+</th>
+</tr>
 
+<tr>
+<th>
 | Entrada: 5000          |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
 |  <i>"APB"</i>          | 0,0063266  s                       |0,0081169 s       |0,0070201 s |
@@ -118,8 +124,11 @@
 |  <i>"MAP"</i>          | 0,0078614  s                       |0,0106417 s   |0,0102997 s |
 |  <i>"U_MAP"</i>        | 0,0070108  s                       |0,009399 s   |0,0100015 s |
 |  <i>"VECTOR"</i>       | 0,0052704  s                       |0,0108431 s   |0,0102378 s |
-</hr>
+</th>
+</tr>
 
+<tr>
+<th>
 | Entrada: 50000         |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
 |  <i>"APB"</i>          | 0,0749651  s                       |0,0071846 s     |0,006959 s |
@@ -128,8 +137,11 @@
 |  <i>"MAP"</i>          | 0,0836889  s                       |0,0101239 s   |0,0133071 s |
 |  <i>"U_MAP"</i>        | 0,0751497  s                       |0,0080505 s   |0,0105195 s |
 |  <i>"VECTOR"</i>       | 0,0515952  s                       |0,0105806 s   |0,0162057 s |
-</hr>
+</th>
+</tr>
 
+<tr>
+<th>
 | Entrada: 500000        |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
 |  <i>"APB"</i>          | 0,864255  s                        |0,0071688 s     |0,0069133 s |
@@ -138,7 +150,8 @@
 |  <i>"MAP"</i>          | 0,88168  s                        |0,0106540 s   |0,0159773 s |
 |  <i>"U_MAP"</i>        | 0,722394   s                        |0,0079768 s   |0,0109511 s |
 |  <i>"VECTOR"</i>       | 0,5242  s                        |0,0113803 s    |0,0964162 s |
-</hr>
+</th>
+</tr>
 
 | Legenda                |  Significado                                                                                      |                     
 | -----------------------| ------------------------------------------------------------------------------------------------- |
