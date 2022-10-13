@@ -155,16 +155,16 @@
 <p>Ao analisar os resultados, fica claro a discrepância quanto a eficiência da árvore Red/Black com as demais árvores. Quanto mais o tamanho dos arquivos aumentam para cada função (insert, search, remove), mais as árvores Binária de Busca e AVL se mostram menos eficientes. Os gráficos a seguir plotam exatamente essa relação [Tempo <b>x</b> Tamanho].</p>
 
 <p float="left">
-<img src="imgs/500g.png" width="500"/>
-<img src="imgs/5000g.png" width="500"/>
+<img src="imgs/500g.png" width="49%"/>
+<img src="imgs/5000g.png" width="49%"/>
 <center><i>Figuras 5 e 6: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i></center>
 </p>
 
 <br/>
 
 <p float="left">
-<img src="imgs/50000g.png" width="500"/>
-<img src="imgs/500000g.png" width="500"/>
+<img src="imgs/50000g.png" width="49%"/>
+<img src="imgs/500000g.png" width="49%"/>
 <center><i>Figuras 7 e 8: Gráfico relacionando o tempo de execução <b>(em segundos)</b> com o tamanho do arquivo, para cada estrutura.</i></cener>
 </p>
 
