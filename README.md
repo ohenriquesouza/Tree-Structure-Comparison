@@ -38,7 +38,7 @@
 <p>A partir dessas características, foram a nos apresentadas três diferentes estruturas em Árvore: <i>Árvore de Pesquisa Binária</i>, <i>Árvore AVL</i> e <i>Árvore Red/Black</i>. Cada uma delas com suas características e peculiaridades, o que possibilita realizar a comparação entre elas e concluir com êxito o objetivo do trabalho.</p>
 
 </hr>
-<p><b>* IMPORTANTE * </b> É válido salientar que NENHUMA das estruturas de árvores aqui implementadas foram feitas pelo autor, com excessão da remoção na árvore red/black, que foi tirada do livro <i>Matemática Discreta e Suas Aplicações 6ª ed. nas páginas 274 e 275.</i> do autor Kenneth H. Rossen, todas as outras funções e lógicas foram arquitetadas pelo professor, apenas pequenas modificações foram feitas para o funcionamento ideal do progama. Caso deseje ler as funções originais, é possível acessá-las clicando <a href="https://github.com/mpiress"> aqui</a>.</p>
+<p><b>* IMPORTANTE * </b> É válido salientar que NENHUMA das estruturas de árvores aqui implementadas foram feitas pelo autor, com excessão da remoção na árvore red/black, que foi tirada do livro <i>Algortimos - Teoria e Prática, 3ª ed. nas páginas 274 e 275.</i> do autor Kenneth H. Rossen, todas as outras funções e lógicas foram arquitetadas pelo professor, apenas pequenas modificações foram feitas para o funcionamento ideal do progama. Caso deseje ler as funções originais, é possível acessá-las clicando <a href="https://github.com/mpiress"> aqui</a>.</p>
 </hr>
 
 # LÓGICA UTILIZADA
