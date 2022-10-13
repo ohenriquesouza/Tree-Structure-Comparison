@@ -108,7 +108,7 @@
 |  <i>"MAP"</i>           | 0,0005779  s                      |0,0085797 s   |0,0088016 s |
 |  <i>"U_MAP"</i>         | 0,0005482  s                      |0,0081461 s   |0,0085326 s |
 |  <i>"VECTOR"</i>        | 0,0004403  s                      |0,0087349 s   |0,0086568 s |
-<hr/>
+
 
 | Entrada: 5000          |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
@@ -118,7 +118,7 @@
 |  <i>"MAP"</i>          | 0,0078614  s                       |0,0106417 s   |0,0102997 s |
 |  <i>"U_MAP"</i>        | 0,0070108  s                       |0,009399 s   |0,0100015 s |
 |  <i>"VECTOR"</i>       | 0,0052704  s                       |0,0108431 s   |0,0102378 s |
-<hr/>
+
 
 | Entrada: 50000         |  Insert                            |  Search      | Remove     |
 | -----------------------| -----------------------------------|--------------|------------|
@@ -128,7 +128,7 @@
 |  <i>"MAP"</i>          | 0,0836889  s                       |0,0101239 s   |0,0133071 s |
 |  <i>"U_MAP"</i>        | 0,0751497  s                       |0,0080505 s   |0,0105195 s |
 |  <i>"VECTOR"</i>       | 0,0515952  s                       |0,0105806 s   |0,0162057 s |
-<hr/>
+
 
 
 | Entrada: 500000        |  Insert                            |  Search      | Remove     |
@@ -139,7 +139,7 @@
 |  <i>"MAP"</i>          | 0,88168  s                        |0,0106540 s   |0,0159773 s |
 |  <i>"U_MAP"</i>        | 0,722394   s                        |0,0079768 s   |0,0109511 s |
 |  <i>"VECTOR"</i>       | 0,5242  s                        |0,0113803 s    |0,0964162 s |
-<hr/>
+
 	
 | Legenda                |  Significado                                                                                      |                     
 | -----------------------| ------------------------------------------------------------------------------------------------- |
@@ -229,6 +229,7 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
 	<li>https://github.com/mpiress</li>
 	<li>https://www.geeksforgeeks.org/quick-sort/</li>
 	<li><b>ROSEN, Kenneth</b>. Matemática Discreta e Suas Aplicações 6ª ed. São Paulo: McGraw-Hill Interamericana do Brasil Ltda. 2009.</li>
+	<li><b>CORMEN, Thomas</b>. Algoritmos - Teoria e Prática 3º Ed. aaaa</li>
 </ul>
 
 
