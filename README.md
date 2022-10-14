@@ -74,7 +74,7 @@
 <p>A leitura dos arquivos acontece de forma padrão, a qual já foi citada várias vezes em fórums e outros READMEs. Utilizando a bilbioteca <code>< fstream ></code> e sua função <code>is_open()</code> seguida de um <code>while</code> que roda até que o arquivo chegue ao fim, cada linha lida é capturada com o <code>getline()</code>, armazenada em uma <code>string LINHA</code> que com o auxílio da função <code>stof()</code> é converitda para valor "flutuante" e associada a variável <code>float AUX</code>. Por fim, esse valor agora float, é inserido nas estruturas.</p>
 
 <div align="center">
-<img src="imgs/insercaoEXEMPLO.png"> <br/>ㅤㅤㅤㅤㅤㅤㅤㅤ
+<img src="imgs/exemploinsert.png"> <br/>ㅤㅤㅤㅤㅤㅤㅤㅤ
 <i>Figura 3: Exemplo de como a inserção é feita/chamada.</i>
 </div>
 
