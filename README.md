@@ -11,6 +11,7 @@
 </hr>
 
 # OBJETIVOS
+<div align="justify">
 
 <p>Foi proposto pelo professor Michel Pires na disciplina de Algorítmo e Estrutura de Dados II, um trabalho no qual o objetivo era comparar todas as estruturas de <i>Árvores</i> apresentadas até a data de hoje, além disso, também deveriam entrar na comparação outros tipos de estruturas como: <i>Map</i>, <i>Unordered Map</i> e <i>Vector</i>.</p>
 
@@ -235,6 +236,7 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
 	<li><b>CORMEN, Thomas</b>. Algoritmos - Teoria e Prática 3º Ed. São Paulo: ELSEVIER ISBN13, 2012.</li>
 </ul>
 
+</div>
 
 # AUTOR
 Criado por Henrique Souza Fagundes;
