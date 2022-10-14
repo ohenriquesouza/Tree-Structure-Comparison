@@ -19,7 +19,8 @@
 <b>- [✔️] Ler números decimais de um arquivo externo;</br></b>
 <b>- [✔️] Utilizar o <i>QuickSort</i> para ordenar o vector durante a inserção;</br></b>
 <b>- [✔️] Comparar os tempos gastos a cada etapa do programa;</br></b>
-<b>- [✔️] Funções como inserir, pesquisar, remover e ordenar (quando necessário) funcionando em todas as estruturas; </br></b></p>
+<b>- [✔️] Funções como inserir, pesquisar, remover e ordenar (quando necessário) funcionando em todas as estruturas; </br></b>
+</p>
 
 <p>Após a apresentação do tema, bem como a demonstração da lógica, serão apresentados todos os resultados obtidos a partir dos testes feitos.</p>
 
