@@ -236,8 +236,8 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
 	<li>https://github.com/mpiress</li>
 	<li>https://www.geeksforgeeks.org/quick-sort/</li>
 	<li>https://cplusplus.com/reference/algorithm/binary_search/</li>
-	<li><b>ROSEN, Kenneth</b>. Matemática Discreta e Suas Aplicações 6ª Ed. São Paulo: McGraw-Hill Interamericana do Brasil Ltda. 2009.</li>
-	<li><b>CORMEN, Thomas</b>. Algoritmos - Teoria e Prática 3º Ed. São Paulo: ELSEVIER ISBN13, 2012.</li>
+	<li><b>ROSEN, Kenneth</b>. Matemática Discreta e Suas Aplicações 6ª Ed. internet: https://www.mheducation.com/. 2009.</li>
+	<li><b>CORMEN, Thomas</b>. Algoritmos - Teoria e Prática 3º Ed. internet: https://www.elsevier.com/pt-br, 2012.</li>
 </ul>
 
 </div>
