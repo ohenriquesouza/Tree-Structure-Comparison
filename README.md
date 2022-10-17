@@ -22,6 +22,7 @@
 <b>- [✔️] Funções como inserir, pesquisar, remover e ordenar (quando necessário) funcionando em todas as estruturas; </br></b>
 </p>
 
+<p>Vale informar aos que não conhecem, que tanto o <i>Map</i> quanto o <i>Unordered_Map</i> são estruturas próprias da vasta linguagem C++, portanto, no site <i>Cplusplus</i> (vide referência), é possível encontrar todas informações sobre estrutura, contexto, implementação e funções associadas de ambos os mapas.</p>
 <p>Após a apresentação do tema, bem como a demonstração da lógica, serão apresentados todos os resultados obtidos a partir dos testes feitos.</p>
 
 # INTRODUÇÃO
@@ -40,7 +41,7 @@
 <p>A partir dessas características, foram a nos apresentadas três diferentes estruturas em Árvore: <i>Árvore de Pesquisa Binária</i>, <i>Árvore AVL</i> e <i>Árvore Red/Black</i>. Cada uma delas com suas características e peculiaridades, o que possibilita realizar a comparação entre elas e concluir com êxito o objetivo do trabalho.</p>
 
 </hr>
-<p><b>* IMPORTANTE * </b> É válido salientar que NENHUMA das estruturas de árvores aqui implementadas foram feitas pelo autor, com excessão da remoção na árvore red/black, que foi tirada do livro <i>Algortimos - Teoria e Prática, 3ª ed. nas páginas 274 e 275.</i> do autor Kenneth H. Rossen, todas as outras funções e lógicas foram arquitetadas pelo professor, apenas pequenas modificações foram feitas para o funcionamento ideal do progama. Caso deseje ler as funções originais, bem como uma explicação detalhada sobre cada tipo de árvore aqui implementada, é possível acessá-las clicando <a href="https://github.com/mpiress"> aqui</a>.</p>
+<p><b>* IMPORTANTE * </b> É válido salientar que NENHUMA das estruturas de árvores aqui implementadas foram feitas pelo autor, com excessão da remoção na árvore red/black, que foi tirada do livro <i>Algortimos - Teoria e Prática, 3ª ed. capítulo 13, páginas 274 e 275.</i> do autor Kenneth H. Rossen, todas as outras funções e lógicas foram arquitetadas pelo professor, apenas pequenas modificações foram feitas para o funcionamento ideal do progama. Caso deseje ler as funções originais, bem como uma explicação detalhada sobre cada tipo de árvore aqui implementada, é possível acessá-las clicando <a href="https://github.com/mpiress"> aqui</a>.</p>
 </hr>
 
 # LÓGICA UTILIZADA
@@ -228,6 +229,8 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
 # REFERÊNCIAS
 
 <ul>
+	<li>https://cplusplus.com/reference/unordered_map/unordered_map/</li>
+	<li>https://cplusplus.com/reference/map/map/?kw=map</li>
 	<li>https://sites.google.com/site/proffdesiqueiraed/aulas/aula-10---arvores</li>
 	<li>https://blog.pantuza.com/artigos/o-algoritmo-de-ordenacao-quicksort</li>
 	<li>https://github.com/mpiress</li>
