@@ -183,6 +183,16 @@
 
 <p>A rainha das estruturas nesses testes que foram realizados, com certeza foi a Árvore Red/Black. Apresentando desempenho muito superior ao esperado (uma vez que possui umas das implementações mais complicadas das estruturas analisadas, principalmente para remover valores), ela chegou como forte candidata ao título de melhor estrutura de dados para as funções analisadas, porém, sua difícil implementação com certeza a faz perder pontos neste ranking, uma vez que, as outras árvores aqui testadas (que não possuem uma implementação tão trabalhosa) também apresetaram um bom desempenho. Apesar disso, é possível perceber que tanto a APB, quanto a AVL perdem desempenho quando o volume de entrada aumenta consideravelmente.</p>
 
+<p>Apenas visualizando o gráfico e/ou decimais tão pequenos como é o caso da tabela, sabe-se que não é tão fácil e intuitivo perceber o real ganho de cada estrutura em cima de suas "concorrentes". Por conta disso, aqui estão apresentados os ganhos reais (em tempo de execução) da Árvore Red/Black sobre as demais estruturas analisadas durante o teste com 500.000 entradas. Usou-se a cor <b>VERDE 🟢</b> para valores superiores a 30%, <b>AMARELO 🟡</b> para valores inferiores a 15% e <b>VERMELHO 🔴</b> para valores inferiores a 5%;<p>
+
+<br/>
+🟢 Sobre a <i>Árvore de Busca Binária</i>, a Red/Black se mostrou ser <b>33,53%</b> mais eficiente em tempo de execução;<br/>
+🟡 Sobre a <i>Árvore AVL</i>, a Red/Black se mostrou ser <b>29,68%</b> mais eficiente em tempo de execução;<br/>
+🟢 Sobre o <i>Mapa</i> (C++), a Red/Black mostrou-se realmente mais eficiente, com um ganho de <b>38,09%</b> em tempo de execução;<br/>
+🟡 Sobre o <i>Mapa Desordenado</i> (C++), a Red/Black se mostrou ser <b>12,70%</b> mais eficiente em tempo de execução;<br/>
+🔴 Sobre o <i>Vector</i> (C++), devido a ordenação concisa e a busca binária super eficiente, pela primeira vez a Red/Black mostrou-se ser <b>3,91%</b> menos eficiente que tal estrutura;
+<br/>
+
 <p>Em síntese, conclui-se que cada estrutura tem vantagens e desvantagens, como já era de se esperar. Analisando todos os valores obtidos pelas estruturas e as horas gastas se dedicando a cada uma delas, o resultado foi o seguinte.</p>
 
 <ul>
