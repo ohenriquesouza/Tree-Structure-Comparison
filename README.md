@@ -41,7 +41,7 @@
 <p>A partir dessas características, foram a nos apresentadas três diferentes estruturas em Árvore: <i>Árvore de Pesquisa Binária</i>, <i>Árvore AVL</i> e <i>Árvore Red/Black</i>. Cada uma delas com suas características e peculiaridades, o que possibilita realizar a comparação entre elas e concluir com êxito o objetivo do trabalho.</p>
 
 </hr>
-<p><b>* IMPORTANTE * </b> É válido salientar que NENHUMA das estruturas de árvores aqui implementadas foram feitas pelo autor, com excessão da remoção na árvore red/black, que foi tirada do livro <i>Algortimos - Teoria e Prática, 3ª ed. capítulo 13, páginas 274 e 275.</i> do autor Kenneth H. Rossen, todas as outras funções e lógicas foram arquitetadas pelo professor, apenas pequenas modificações foram feitas para o funcionamento ideal do progama. Caso deseje ler as funções originais, bem como uma explicação detalhada sobre cada tipo de árvore aqui implementada, é possível acessá-las clicando <a href="https://github.com/mpiress"> aqui</a>.</p>
+<p><b>* IMPORTANTE * </b> É válido salientar que NENHUMA das estruturas de árvores aqui implementadas foram feitas pelo autor, com excessão da remoção na árvore red/black, que foi tirada do livro <i>Algortimos - Teoria e Prática, 3ª ed. capítulo 13, páginas 274 e 275.</i> do autor Thomas H. Cormen, todas as outras funções e lógicas foram arquitetadas pelo professor, apenas pequenas modificações foram feitas para o funcionamento ideal do progama. Caso deseje ler as funções originais, bem como uma explicação detalhada sobre cada tipo de árvore aqui implementada, é possível acessá-las clicando <a href="https://github.com/mpiress"> aqui</a>.</p>
 </hr>
 
 # LÓGICA UTILIZADA
@@ -69,7 +69,7 @@
 </div>
 
 <br/>
-<p>Caso o usuário deseje adicionar um novo arquivo para testes, deve serguir esse formato, além de garantir que todos os valores presentes dentro do arquivo sejam "flutuantes" com até 6 casas decimais.</p>
+<p>Caso o usuário deseje adicionar um novo arquivo para testes, deve serguir esse formato, além de garantir que todos os valores presentes dentro do arquivo sejam "flutuantes" com até 6 casas decimais. Os valores usados para teste foram gerados automáticamente online, neste <a href="https://www.techiedelight.com/generate-random-float-value-in-cpp/"> site</a>.</p>
 
 <p>Na figura 2 é possível perceber que tem um arquivo que foge dos padrões e recebe o nome de <code>entrada.txt</code>. Esse arquivo é onde estão armazenados os valores aos quais, após a inserção, serão pesquisados dentro das estruturas. Com isso, caso o usuário deseje altera-los, basta inserir um novo arquivo de entrada para pesquisa, mas mantendo o nome <code>entrada.txt</code> para que não seja necessário mudar nada nas funções de leitura.</p>
 
@@ -85,7 +85,7 @@
 
 <p>Na verdade, essa estrutura mostrada na figura 3 é usada para todos os metodos em todas as estruturas de dados, com alteração, é claro da função chamada (insert, serach e remove), sendo assim, qualquer possível manutenção no código ou alteração por parte do usuário seria de extrema tranquilidade, uma vez que, tudo segue exatamente o mesmo padrão.</p>
 
-<p>É importante citar que: para os métodos de pesquisa e remoção na estrutra Vector, utilizou-se de funções muito interessantes, próprias da linguagem C++. As funções em questão foram: <code>binary_search()</code> e a <code>lower_bound()</code> (ambos referenciadas no final do arquivo). A função <code>binary_search()</code>, como indica o nome, realiza uma busca binária no vector (que já deve estar ordenado) e retorna <i>true</i> ou <i>false</i>, caso encontre o número desejado ou não, respectivamente. A <code>lower_bound()</code> por sua vez, realiza uma busca linear. Essa função foi utilizada na parte de remoçao do valor de dentro da estrutura. Devido a eficiência da pesquisa binária, proporcionada pela função, o vector apresenta um tempo de pesquisa bem satisfatório, tempo esse que sofre uma certa defasagem na parte da remoção, uma vez que utiiza também a <code>lower_bound()</code>, que realiza busca linear, o que explica a diferença de tempo.</p>
+<p>É importante citar que: para os métodos de pesquisa e remoção na estrutra Vector, utilizou-se de funções muito interessantes, próprias da linguagem C++. As funções em questão foram: <code>binary_search()</code> e a <code>lower_bound()</code> (ambos referenciadas no final do arquivo). A função <code>binary_search()</code>, como indica o nome, realiza uma busca binária no vector (que já deve estar ordenado) e retorna <i>true</i> ou <i>false</i>, caso encontre o número desejado ou não, respectivamente. A <code>lower_bound()</code> por sua vez, realiza uma busca linear. Essa função foi utilizada na parte de remoçao do valor de dentro da estrutura. Devido a eficiência da pesquisa binária, proporcionada pela função, o vector apresenta um tempo de pesquisa bem satisfatório, tempo esse que sofre uma certa defasagem na parte da remoção, uma vez que utiiza também a <code>lower_bound()</code>, que realiza busca linear, o que explica a diferença de tempo. Ainda sobre o vector, é de conhecimento geral que, por não se tratar de uma "estrutura" com regras específicas como as outras, o mesmo não possui nenhum mecanismo automático que impeça a entrada de <i>'x'</i> valores repetidos. Apesar disso, existem soluções eficientes para este problema, uma delas é o <code>std::set</code> referênciado oficialmente no site <i>Cplusplus</i> (vide referência). Utilizando dessa ferramenta presente no C++, é possível driblar este problema. Entretanto, devido a má organização de tempo do autor, tal ferramenta não foi aplicada, o que significa que haverão valores repetidos dentro do Vector, caso isso seja presente na entrada do usuário.</p>
 
 <h2>🕗 Tempo: </h2>
 
@@ -232,6 +232,7 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
     <li><code>#include 'chrono'</code></li>
     <li><code>#include 'stdlib.h'</code></li>
     <li><code>#include 'stdbool.h'</code></li>
+	<li><b>SUJESTÃO:</b><code>#include 'set'</code> <-- Caso deseje solucionar o problema dos valores repetidos no vector;</li>
 </ul>
 
 <hr/>
@@ -239,6 +240,7 @@ Para o funcionamento desejado, é necessário incluir as seguintes bibliotecas n
 # REFERÊNCIAS
 
 <ul>
+	<li>https://cplusplus.com/reference/set/set/</li>
 	<li>https://cplusplus.com/reference/unordered_map/unordered_map/</li>
 	<li>https://cplusplus.com/reference/map/map/?kw=map</li>
 	<li>https://sites.google.com/site/proffdesiqueiraed/aulas/aula-10---arvores</li>
